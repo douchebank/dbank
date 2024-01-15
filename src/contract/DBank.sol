@@ -84,7 +84,7 @@ contract DBank {
 
         _counter++;
 
-        emit PlanCreated(_counter, name, description, tokens, allocations, msg.sender);
+        emit PlanCreated(_counter, _name, _description, _tokens, _allocations, msg.sender);
 
         return true;
     }
