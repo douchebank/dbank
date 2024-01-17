@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <p className='text-xl text-red-600'>Hello World</p>
+      <AppRoutes />
     </div>
   );
 }
