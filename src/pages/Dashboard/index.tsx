@@ -1,13 +1,18 @@
 import Baskets from "../../components/Baskets";
 import MyWallet from "../../components/MyWallet";
 import WatchList from "../../components/WatchList";
+import logo from  "../../assets/logo.svg"
+import home from "../../assets/home.svg"
+import sip from "../../assets/sip.svg"
 
 const Dashboard = () => {
   return (
     <div className="flex w-full min-h-screen ">
       {/* Left Sidebar  */}
-      <div className="   flex justify-center items-start bg-grey rounded-r-3xl py-2 pt-5">
-        Left Sidebar
+      <div className="bg-grey rounded-r-3xl pt-5">
+        <img src={logo} className="h-20" alt="Doosh Bank"/>
+        <img src={home} className="h-16 p-3 mx-auto" alt="Home"/>
+        <img src={sip} className="h-16 p-3 mx-auto" alt="Sip"/>
       </div>
 
       {/* Middle Part  */}
