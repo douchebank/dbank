@@ -7,3 +7,8 @@ body{
     background: rgb(246,255,129);
     background: linear-gradient(215deg, rgba(246,255,129,1) 46%, rgba(98,174,158,1) 100%);
 }
+
+.gradient2{
+    background: rgb(232,250,227);
+    background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
+}
