@@ -19,7 +19,13 @@ const Dashboard = () => {
 
             <div className="h-[90%] overflow-y-scroll scrollbar">
               {/* Map over it instead of copy pasting  */}
-              <WatchList uid="1" title="Big Cap" price={100} tvl={1000} logo="" />
+              <WatchList
+                uid="1"
+                title="Big Cap adns asdfahsdfa"
+                price={100}
+                tvl={1000}
+                logo=""
+              />
               <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
               <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
               <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
@@ -27,7 +33,9 @@ const Dashboard = () => {
           </div>
         </div>
         {/* lowerSection */}
-        <div className="h-3/5">
+        <div className="h-3/5 px-5">
+          <h1 className="font-bold tracking-wide text-2xl">Baskets</h1>
+
           <Baskets />
         </div>
       </div>
