@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+body{
+    font-family: 'Lexend', sans-serif;
+}
+
+.gradient{
+    background: rgb(246,255,129);
+    background: linear-gradient(215deg, rgba(246,255,129,1) 46%, rgba(98,174,158,1) 100%);
+}

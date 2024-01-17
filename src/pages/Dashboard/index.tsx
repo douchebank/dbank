@@ -1,5 +1,12 @@
+import MyWallet from "../../components/MyWallet";
+
+
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+  <div>
+    <MyWallet/>
+  </div>
+  )
 };
 
 export default Dashboard;

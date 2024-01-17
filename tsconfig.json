@@ -19,5 +19,5 @@
   "paths": {
     "stream": ["./node_modules/readable-stream"]
   },
-  "include": ["src"]
+  "include": ["*" ,"src", "custom.d.ts"]
 }
