@@ -15,19 +15,22 @@ body{
 
 .scrollbar::-webkit-scrollbar-track
 {
-	border: 1px solid white;
-	background-color: transparent;
+	/* border: 1px solid #d8e2e1; */
+  padding: 2px;
+	background-color: white;
   border-radius: 10px;
 
 }
 .scrollbar::-webkit-scrollbar
 {
 	width: 10px;
-	background-color: transparent;
+	/* background-color: blueviolet; */
   border-radius: 10px;
 }
 .scrollbar::-webkit-scrollbar-thumb
 {
-	background-color: #fff;	
+	background: rgb(246,255,129);
+  background: rgb(232,250,227);
+  background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
   border-radius: 10px;
 }

@@ -17,7 +17,7 @@ const Dashboard = () => {
           <div className="w-3/5 px-8 ">
             <p className="font-bold tracking-wide text-xl mb-2">WatchList</p>
 
-            <div className="h-[90%] overflow-y-scroll scrollbar">
+            <div className="h-[90%] overflow-y-scroll flex flex-col gap-4 pr-4 scrollbar">
               {/* Map over it instead of copy pasting  */}
               <WatchList
                 uid="1"
