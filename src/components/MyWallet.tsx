@@ -4,7 +4,7 @@ import send from "../assets/send.svg";
 
 const MyWallet = () => {
   return (
-    <div className="bg-grey w-fit rounded-3xl px-16 py-12 text-center">
+    <div className="gradient2 w-fit rounded-3xl px-16 py-12 text-center">
       <p className="text-sm">My Wallet</p>
       <p className="text-6xl font-bold px-6 mt-4">$128,921</p>
       <p className="text-xs mt-2">+ $12,921 from last week</p>
