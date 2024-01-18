@@ -3,6 +3,9 @@ import dummyImg from "../assets/recent.png";
 import bookmarkImg from "../assets/bookmark.svg";
 import selectedBookmark from "../assets/selectedBookmark.svg";
 import { BucketType } from "../constants/Types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 
 import ethereum from "../assets/icons/ethereum.png"
 import avalanche from "../assets/icons/avalanche.png"
@@ -49,51 +52,71 @@ const Bucket = ({
           </div>
         </div>
       </div>
-      <div className="flex mt-4 gap-4 py-2 max-w-[350px] overflow-x-scroll scrollbar ">
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={ethereum} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+
+      <div className="flex mt-4 gap-4 py-2 max-w-[350px] ">
+      <Swiper
+          spaceBetween={0}
+          slidesPerView={3}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+        <SwiperSlide>
+          <div >
+            <div className="relative ">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center  bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={ethereum} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
-        </div>
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={arbitrum} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div >
+            <div className="relative">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={arbitrum} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
-        </div>
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={avalanche} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div >
+            <div className="relative">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={avalanche} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
-        </div>
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={optimistic} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div >
+            <div className="relative">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={optimistic} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
-        </div>
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={polygon} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div >
+            <div className="relative">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={polygon} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
-        </div>
-        <div >
-          <div className="relative">
-            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
-            <img src={usdt} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div >
+            <div className="relative">
+              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <img src={usdt} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
+            </div>
+            <p className="text-center text-xs">10%</p>
           </div>
-          <p className="text-center text-xs">10%</p>
+        </SwiperSlide>
+        </Swiper>
         </div>
 
-      </div>
       <div className="flex justify-center items-center mt-4  gap-2">
         {invested ? (
           <>

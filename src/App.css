@@ -34,3 +34,13 @@ body{
   background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
   border-radius: 10px;
 }
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

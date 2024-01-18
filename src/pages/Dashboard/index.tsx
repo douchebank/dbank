@@ -4,9 +4,11 @@ import MyWallet from "../../components/MyWallet";
 import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
 import { BUCKET_TYPE } from "../../constants/Types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const Dashboard = () => {
-  const isIvested = true;
+  const isInvested = true;
 
   return (
     <div className="flex w-full max-h-screen ">
@@ -15,6 +17,7 @@ const Dashboard = () => {
       </div>
       {/* Middle Part  */}
       <div className="w-[65%] flex flex-col pl-8 pt-5 gap-5">
+
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
           <div className="w-2/5 flex justify-center justify-self-center ">
@@ -64,35 +67,83 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         {/* lowerSection */}
         <div className=" flex flex-col gap-5 h-3/5 px-5 overflow-y-scroll scrollbar ">
           <div>
-            {isIvested === true && (
+            {isInvested === true && (
               <>
                 <h1 className="font-bold tracking-wide text-2xl">
                   Invested Accounts
                 </h1>
-                <div className="flex gap-5 py-4 overflow-x-scroll scrollbar">
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={true}
-                    assets={[]}
-                  />
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={true}
-                    assets={[]}
-                  />
+                <div className="flex gap-5 py-4  h-full overflow-x-scroll scrollbar">
+                  <Swiper
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => console.log(swiper)}
+                  >
+                    <SwiperSlide>
+                      <Bucket
+                        uid="1"
+                        title="Big Cap"
+                        price={100}
+                        tvl={1000}
+                        logo=""
+                        type={BUCKET_TYPE.GENERAL}
+                        invested={false}
+                        assets={[]}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Bucket
+                        uid="1"
+                        title="Big Cap"
+                        price={100}
+                        tvl={1000}
+                        logo=""
+                        type={BUCKET_TYPE.GENERAL}
+                        invested={false}
+                        assets={[]}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Bucket
+                        uid="1"
+                        title="Big Cap"
+                        price={100}
+                        tvl={1000}
+                        logo=""
+                        type={BUCKET_TYPE.GENERAL}
+                        invested={false}
+                        assets={[]}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Bucket
+                        uid="1"
+                        title="Big Cap"
+                        price={100}
+                        tvl={1000}
+                        logo=""
+                        type={BUCKET_TYPE.GENERAL}
+                        invested={false}
+                        assets={[]}
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Bucket
+                        uid="1"
+                        title="Big Cap"
+                        price={100}
+                        tvl={1000}
+                        logo=""
+                        type={BUCKET_TYPE.GENERAL}
+                        invested={true}
+                        assets={[]}
+                      />
+                    </SwiperSlide>
+                  </Swiper>
                 </div>
               </>
             )}
@@ -101,62 +152,80 @@ const Dashboard = () => {
           <div>
             <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
             <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden scrollbar">
-              <Bucket
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-                assets={[]}
-              />
-              <Bucket
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-                assets={[]}
-              />
-              <Bucket
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-                assets={[]}
-              />
-              <Bucket
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-              />
-              <Bucket
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-                assets={[]}
-              />
+              <Swiper
+                spaceBetween={50}
+                slidesPerView={3}
+                onSlideChange={() => console.log("slide change")}
+                onSwiper={(swiper) => console.log(swiper)}
+              >
+                <SwiperSlide>
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={false}
+                    assets={[]}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={false}
+                    assets={[]}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={false}
+                    assets={[]}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={false}
+                    assets={[]}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={false}
+                    assets={[]}
+                  />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>
       </div>
       {/* Right Tab  */}
       <div className="w-[25%] bg-grey">
-        <RightTab/>
+        <RightTab />
       </div>
     </div>
   );
