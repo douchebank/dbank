@@ -80,8 +80,8 @@ const Bucket = ({
         >
         <SwiperSlide>
           <div >
-            <div className="relative ">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center  bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <div className="relative">
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center  bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={ethereum} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>
@@ -90,7 +90,7 @@ const Bucket = ({
         <SwiperSlide>
           <div >
             <div className="relative">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={arbitrum} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>
@@ -99,7 +99,7 @@ const Bucket = ({
         <SwiperSlide>
           <div >
             <div className="relative">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={avalanche} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>
@@ -108,7 +108,7 @@ const Bucket = ({
         <SwiperSlide>
           <div >
             <div className="relative">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={optimistic} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>
@@ -117,7 +117,7 @@ const Bucket = ({
         <SwiperSlide>
           <div >
             <div className="relative">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={polygon} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>
@@ -126,7 +126,7 @@ const Bucket = ({
         <SwiperSlide>
           <div >
             <div className="relative">
-              <p className="absolute left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+              <p className="absolute  cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
               <img src={usdt} className="h-10 w-10 mx-auto rounded-full  shadow-md"  alt="logo"/>
             </div>
             <p className="text-center text-xs">10%</p>

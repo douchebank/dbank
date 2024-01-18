@@ -10,8 +10,8 @@ const AssetCard = ({ isEditable }: AssetCardParams) => {
   // const isPersonalAndEditable = false; // get it form the props when passed in (this the enum value) used to make the
   const value = 10;
   return (
-    <div className="w-full m-1">
-      <div className="flex justify-between items-center  gradient2  w-[80%]  mx-auto py-2  px-5 rounded-xl gap-2">
+    <div className="w-full m-1 ">
+      <div className="flex justify-between items-center shadow-md gradient2  w-[80%]  mx-auto py-2  px-5 rounded-xl gap-2">
         <div className="flex justify-center items-center gap-2">
           <img src={polygon} alt="Asset Name" className="h-10 w-10" />
           <p className="text-2xl font-semibold tracking-wider ">MATIC</p>
