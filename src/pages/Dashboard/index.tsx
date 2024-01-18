@@ -1,9 +1,12 @@
-import Baskets from "../../components/Baskets";
+import Bucket from "../../components/Bucket";
 import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
 import WatchList from "../../components/WatchList";
+import { BUCKET_TYPE } from "../../constants/Types";
 
 const Dashboard = () => {
+  const isIvested = true;
+
   return (
     <div className="flex w-full max-h-screen ">
       <div className="w-[10%]">
@@ -27,24 +30,126 @@ const Dashboard = () => {
                 price={100}
                 tvl={1000}
                 logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
               />
-              <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
-              <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
-              <WatchList uid="1" title="Big Cap" price={100} tvl={1000} />
+              <WatchList
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+              />
+              <WatchList
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+              />
+              <WatchList
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+              />
             </div>
           </div>
         </div>
         {/* lowerSection */}
-        <div className=" flex flex-col gap-5 h-3/5 px-5">
-          <h1 className="font-bold tracking-wide text-2xl">Baskets</h1>
+        <div className=" flex flex-col gap-5 h-3/5 px-5 overflow-y-scroll scrollbar ">
+          <div>
+            {isIvested === true && (
+              <>
+                <h1 className="font-bold tracking-wide text-2xl">
+                  Invested Accounts
+                </h1>
+                <div className="flex gap-5 py-4  h-full overflow-x-scroll scrollbar">
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={true}
+                    assets={[]}
+                  />
+                  <Bucket
+                    uid="1"
+                    title="Big Cap"
+                    price={100}
+                    tvl={1000}
+                    logo=""
+                    type={BUCKET_TYPE.GENERAL}
+                    invested={true}
+                    assets={[]}
+                  />
+                </div>
+              </>
+            )}
+          </div>
 
-          <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden">
-            <Baskets />
-            <Baskets />
-            <Baskets />
-            <Baskets />
-            <Baskets />
-            <Baskets />
+          <div>
+            <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
+            <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden scrollbar">
+              <Bucket
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+              />
+              <Bucket
+                uid="1"
+                title="Big Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+            </div>
           </div>
         </div>
       </div>
