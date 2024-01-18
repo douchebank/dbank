@@ -22,3 +22,10 @@ export type BucketType = {
   type: BUCKET_TYPE; // THIS TO SET IF IT IS EDITIBLE OR NOT IN TERMS OF ADDING ASSETS.
   // aslo add a key named addedToWatchList = true // by default give it to false.
 };
+
+// Modal.tsx
+export type ModalParams = {
+  title: string;
+  uid: string;
+  onClose: () => void;
+};

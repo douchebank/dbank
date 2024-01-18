@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from 'react-router-dom';
 import dummyImg from "../assets/recent.png";
 import bookmarkImg from "../assets/bookmark.svg";
 import selectedBookmark from "../assets/selectedBookmark.svg";
@@ -13,6 +14,7 @@ import arbitrum from "../assets/icons/arbitrum.png"
 import optimistic from "../assets/icons/optimistic.png"
 import polygon from "../assets/icons/polygon.png"
 import usdt from "../assets/icons/usdt.png"
+import Modal from "./Modal";
 
 const Bucket = ({
   uid,
@@ -25,11 +27,27 @@ const Bucket = ({
   type,
 }: BucketType) => {
   const [bookmark, setBookmark] = useState(false);
+  const [openModal, setModalOpen] = useState(false);
   const toggleBookmark = () => {
     setBookmark(!bookmark);
   };
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
+  const location = useLocation();
+
+  const handleInvestClick = () => {
+    if (location.pathname === "/sip" || location.pathname === "/sip/"){
+      setModalOpen(true);
+    } else if (location.pathname === "/dashboard" || location.pathname === "/dashboard/") {
+      console.log(location.pathname, "You are in dashboard");
+    } 
+  }
+
   return (
-    <div className=" relative min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg  ">
+    <div className="h-fit min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg overflow-hidden ">
+      <div className="relative">
       <div className="flex">
         <img
           className="h-28 w-28 rounded-xl "
@@ -53,7 +71,7 @@ const Bucket = ({
         </div>
       </div>
 
-      <div className="flex mt-4 gap-4 py-2 max-w-[350px] ">
+      <div className="flex mt-4 gap-4 py-2 max-w-[350px] mx-auto">
       <Swiper
           spaceBetween={0}
           slidesPerView={3}
@@ -129,7 +147,7 @@ const Bucket = ({
           </>
         ) : (
           <>
-            <button className="text-center border border-transparent hover:border-black rounded-lg bg-lime-400  shadow-md hover:shadow-lg p-2 w-[90%]">
+            <button onClick={handleInvestClick} className="text-center border border-transparent hover:border-black rounded-lg bg-lime-400  shadow-md hover:shadow-lg p-2 w-[90%]">
               Invest
             </button>
           </>
@@ -141,6 +159,12 @@ const Bucket = ({
         src={bookmark ? selectedBookmark : bookmarkImg}
         alt="bookmark"
       />
+      </div>
+
+      {
+        openModal && 
+          <Modal title={title} uid = {uid}  onClose={closeModal}/>   
+      }
     </div>
   );
 };
