@@ -1,3 +1,4 @@
+import Slider from "react-slick";
 import Bucket from "../../components/Bucket";
 import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
@@ -7,6 +8,16 @@ import { BUCKET_TYPE } from "../../constants/Types";
 const Dashboard = () => {
   const isIvested = true;
 
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    variableWidth: true,
+    // adaptiveHeight: true,
+  }
   return (
     <div className="flex w-full max-h-screen ">
       <div className="w-[10%]">
@@ -71,38 +82,69 @@ const Dashboard = () => {
                 <h1 className="font-bold tracking-wide text-2xl">
                   Invested Accounts
                 </h1>
-                <div className="flex gap-5 py-4  h-full overflow-x-scroll scrollbar">
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={true}
-                    assets={[]}
-                  />
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={true}
-                    assets={[]}
-                  />
-                </div>
+
+                <Slider {...settings}  className="flex gap-5 py-4 overflow-y-hidden h-fit ">
+              <Bucket
+                uid="1"
+                title="c Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="dCap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="e Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+              <Bucket
+                uid="1"
+                title="f Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+              />
+              <Bucket
+                uid="1"
+                title="g Cap"
+                price={100}
+                tvl={1000}
+                logo=""
+                type={BUCKET_TYPE.GENERAL}
+                invested={false}
+                assets={[]}
+              />
+            </Slider>
+
               </>
             )}
           </div>
 
           <div>
             <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
-            <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden scrollbar">
+            <Slider {...settings}  className="flex gap-5 py-4 overflow-y-hidden h-fit ">
               <Bucket
                 uid="1"
-                title="Big Cap"
+                title="c Cap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -112,7 +154,7 @@ const Dashboard = () => {
               />
               <Bucket
                 uid="1"
-                title="Big Cap"
+                title="dCap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -122,7 +164,7 @@ const Dashboard = () => {
               />
               <Bucket
                 uid="1"
-                title="Big Cap"
+                title="e Cap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -132,7 +174,7 @@ const Dashboard = () => {
               />
               <Bucket
                 uid="1"
-                title="Big Cap"
+                title="f Cap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -141,7 +183,7 @@ const Dashboard = () => {
               />
               <Bucket
                 uid="1"
-                title="Big Cap"
+                title="g Cap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -149,7 +191,7 @@ const Dashboard = () => {
                 invested={false}
                 assets={[]}
               />
-            </div>
+            </Slider>
           </div>
         </div>
       </div>

@@ -34,3 +34,16 @@ body{
   background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
   border-radius: 10px;
 }
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* for Internet Explorer and Edge */
+  scrollbar-width: none;  /* for Firefox */
+}
+
+.slick-track{
+  height: fit-content;
+}

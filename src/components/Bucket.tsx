@@ -1,3 +1,4 @@
+import Slider from "react-slick";
 import { useState } from "react";
 import dummyImg from "../assets/recent.png";
 import bookmarkImg from "../assets/bookmark.svg";
@@ -18,8 +19,21 @@ const Bucket = ({
   const toggleBookmark = () => {
     setBookmark(!bookmark);
   };
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    variableWidth: true,
+    adaptiveHeight: true,
+    centerPadding: "20px"
+  }
+
   return (
-    <div className=" relative min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg  ">
+    <div className=" relative min-w-[30%] py-5 px-4 mx-3 rounded-xl gradient2 shadow-lg  ">
       <div className="flex">
         <img
           className="h-28 w-28 rounded-xl "
@@ -42,14 +56,12 @@ const Bucket = ({
           </div>
         </div>
       </div>
-      <div className="flex mt-4 gap-4 max-w-[350px] overflow-x-scroll scrollbar ">
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-      </div>
+      <Slider {...settings} className="flex gap-4 mt-4 max-w-[350px] overflow-hidden">
+        <span className="h-6 w-6 p-6  rounded-full bg-blue-700"></span>
+        <span className="h-6 w-6 p-6  rounded-full bg-blue-700"></span>
+        <span className="h-6 w-6 p-6  rounded-full bg-blue-700"></span>
+        <span className="h-6 w-6 p-6  rounded-full bg-blue-700"></span>
+      </Slider>
       <div className="flex justify-center items-center mt-4  gap-2">
         {invested ? (
           <>
