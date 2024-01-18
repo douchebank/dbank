@@ -2,8 +2,8 @@ import dumyImg from "../assets/recent.png";
 import { BucketType } from "../constants/Types";
 const WatchList = ({ uid, title, price, tvl, logo }: BucketType) => {
   return (
-    <div className=" w-full">
-      <div className="flex  gap-4 p-4  gradient2 rounded-xl shadow-lg">
+    <div className=" w-fit">
+      <div className="flex  gap-4 p-4  gradient2 w-fit rounded-xl shadow-lg">
         {/* <div className="flex gap-4 justify-around items-center"> */}
           <img
             src={logo ? logo : dumyImg}

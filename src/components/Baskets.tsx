@@ -10,12 +10,12 @@ const Baskets = () => {
   }
   return (
 
-      <div className="w-fit p-4 rounded-xl gradient2 shadow-lg ">
+      <div className="w-[25%] p-4 rounded-xl gradient2 shadow-lg ">
         <div className="flex">
           <img className="h-28 w-28 rounded-xl " src={dummyImg} alt="logo" />
           <div className="w-full pl-4">
             <div className="flex justify-between gap-2 items-center">
-              <p className="text-3xl font-bold tracking-wide">Name</p>  
+              <p className="text-3xl font-bold tracking-wide">Sandeep</p>  
               <img className="h-6" onClick={toggleBookmark} src={bookmark ? selectedBookmark : bookmarkImg } alt="bookmark" />
             </div>
             <div className="flex justify-between mt-2">

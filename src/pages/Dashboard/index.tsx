@@ -5,23 +5,25 @@ import WatchList from "../../components/WatchList";
 
 const Dashboard = () => {
   return (
-    <div className="flex w-full min-h-screen ">
-      <LeftSidebar/>
+    <div className="flex w-full max-h-screen ">
+      <div className="w-[10%]">
+        <LeftSidebar />
+      </div>
       {/* Middle Part  */}
-      <div className="w-[60%] flex flex-col px-8 pt-5 gap-5">
+      <div className="w-[65%] flex flex-col px-8 pt-5 gap-5">
         {/* upperSection  */}
-        <div className=" h-2/5  flex gap-5 justify-between  ">
+        <div className=" h-[42%]  flex  justify-between  ">
           <div className="w-2/5 flex justify-center justify-self-center ">
             <MyWallet />
           </div>
-          <div className="w-3/5 px-8 ">
+          <div className="w-3/5 px-6">
             <p className="font-bold tracking-wide text-xl mb-2">WatchList</p>
 
-            <div className="h-[90%] overflow-y-scroll flex flex-col gap-4 pr-4 scrollbar">
+            <div className="h-[90%] w-fit overflow-y-scroll flex flex-col gap-4 pr-4 scrollbar">
               {/* Map over it instead of copy pasting  */}
               <WatchList
                 uid="1"
-                title="Big Cap adns asdfahsdfa"
+                title="Big Cap"
                 price={100}
                 tvl={1000}
                 logo=""
@@ -33,14 +35,21 @@ const Dashboard = () => {
           </div>
         </div>
         {/* lowerSection */}
-        <div className="h-3/5 px-5">
+        <div className=" flex flex-col gap-5 h-3/5 px-5">
           <h1 className="font-bold tracking-wide text-2xl">Baskets</h1>
 
-          <Baskets />
+          <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden">
+            <Baskets />
+            <Baskets />
+            <Baskets />
+            <Baskets />
+            <Baskets />
+            <Baskets />
+          </div>
         </div>
       </div>
       {/* Right Tab  */}
-      <div className="w-[20%]"></div>
+      <div className="w-[25%]"></div>
     </div>
   );
 };
