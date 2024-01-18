@@ -72,7 +72,7 @@ const Dashboard = () => {
                 <h1 className="font-bold tracking-wide text-2xl">
                   Invested Accounts
                 </h1>
-                <div className="flex gap-5 py-4  h-full overflow-x-scroll scrollbar">
+                <div className="flex gap-5 py-4 overflow-x-scroll scrollbar">
                   <Bucket
                     uid="1"
                     title="Big Cap"

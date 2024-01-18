@@ -4,6 +4,13 @@ import bookmarkImg from "../assets/bookmark.svg";
 import selectedBookmark from "../assets/selectedBookmark.svg";
 import { BucketType } from "../constants/Types";
 
+import ethereum from "../assets/icons/ethereum.png"
+import avalanche from "../assets/icons/avalanche.png"
+import arbitrum from "../assets/icons/arbitrum.png"
+import optimistic from "../assets/icons/optimistic.png"
+import polygon from "../assets/icons/polygon.png"
+import usdt from "../assets/icons/usdt.png"
+
 const Bucket = ({
   uid,
   logo,
@@ -42,13 +49,50 @@ const Bucket = ({
           </div>
         </div>
       </div>
-      <div className="flex mt-4 gap-4 max-w-[350px] overflow-x-scroll scrollbar ">
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+      <div className="flex mt-4 gap-4 py-2 max-w-[350px] overflow-x-scroll scrollbar ">
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={ethereum} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={arbitrum} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={avalanche} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={optimistic} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={polygon} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+        <div >
+          <div className="relative">
+            <p className="absolute justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">Eth</p>
+            <img src={usdt} className="h-10 w-10 rounded-full  shadow-md"  alt="logo"/>
+          </div>
+          <p className="text-center text-xs">10%</p>
+        </div>
+
       </div>
       <div className="flex justify-center items-center mt-4  gap-2">
         {invested ? (
