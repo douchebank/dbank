@@ -3,6 +3,9 @@ import dummyImg from "../assets/recent.png";
 import bookmarkImg from "../assets/bookmark.svg";
 import selectedBookmark from "../assets/selectedBookmark.svg";
 import { BucketType } from "../constants/Types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 
 const Bucket = ({
   uid,
@@ -43,12 +46,34 @@ const Bucket = ({
         </div>
       </div>
       <div className="flex mt-4 gap-4 max-w-[350px] overflow-x-scroll scrollbar ">
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
-        <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={3}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+          <SwiperSlide>
+            <span className="h-6 w-6 p-6 rounded-full bg-blue-700"></span>
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div className="flex justify-center items-center mt-4  gap-2">
         {invested ? (
