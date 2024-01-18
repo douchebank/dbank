@@ -1,6 +1,7 @@
 import Bucket from "../../components/Bucket";
 import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
+import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
 import { BUCKET_TYPE } from "../../constants/Types";
 
@@ -13,7 +14,7 @@ const Dashboard = () => {
         <LeftSidebar />
       </div>
       {/* Middle Part  */}
-      <div className="w-[65%] flex flex-col px-8 pt-5 gap-5">
+      <div className="w-[65%] flex flex-col pl-8 pt-5 gap-5">
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
           <div className="w-2/5 flex justify-center justify-self-center ">
@@ -154,7 +155,9 @@ const Dashboard = () => {
         </div>
       </div>
       {/* Right Tab  */}
-      <div className="w-[25%]"></div>
+      <div className="w-[25%] bg-grey">
+        <RightTab/>
+      </div>
     </div>
   );
 };
