@@ -7,7 +7,7 @@ import  localforage  from "localforage";
 
 localforage.config({
   driver: localforage.INDEXEDDB, // This will use indexedDB
-  name: "WalletX", // Name of your database.
+  name: "DBank", // Name of your database.
   storeName: "tokensData", // Name of your object store.
 });
 
