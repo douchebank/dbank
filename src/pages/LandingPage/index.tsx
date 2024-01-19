@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Login from "../../components/Login";
 import Register from "../../components/Register";
+import { removeItemFromStorage } from "../../utils/helper";
 
 const LandingPage = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -12,6 +13,7 @@ const LandingPage = () => {
   }
   const toggleShowRegisterModal = () => {
     setShowLoginModal(false);
+    removeItemFromStorage("smartAccount");
     setShowRegisterModal(!showRegisterModal);
   }
   return (
