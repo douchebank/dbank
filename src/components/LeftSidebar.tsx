@@ -12,8 +12,8 @@ const LeftSidebar = () => {
   const currentPath = currentLocation.pathname;
 
   return (
-    <div className="gradient2 rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-full h-full ">
-      <img src={logo} className="h-32 mx-auto" alt="Doosh Bank" />
+    <div className="gradient2 rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-fit h-screen min-w-[10em]">
+      <img src={logo} className="h-32" alt="Doosh Bank" />
       <div className="flex flex-col gap-6">
         <Link
           to="/dashboard"

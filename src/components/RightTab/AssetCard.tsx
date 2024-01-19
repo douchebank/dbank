@@ -25,7 +25,7 @@ const AssetCard = ({ isEditable, toBeAdded }: AssetCardParams) => {
 
         {!toBeAdded === true ? (
           <>
-            <label className="text-xl justify-self-end place-self-end  ">
+            <label className="text-xl whitespace-nowrap justify-self-end place-self-end  ">
               <input
                 disabled={!isEditable}
                 type="number"
