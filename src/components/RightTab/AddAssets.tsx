@@ -25,7 +25,13 @@ const AddAssets = ({ onClose }: AddAssetParam) => {
           alt="search"
         />
       </div>
-      <AssetCard isEditable={true} />
+
+      <div className=" divide-y-2 divide-black divide-opacity-75">
+        <AssetCard isEditable={true} toBeAdded={false} />
+        <AssetCard isEditable={false} toBeAdded={true} />
+      </div>
+
+      {/* Buttons  */}
       <div className="flex absolute bottom-0 gap-4 w-full">
         <button
           onClick={() => onClose()}
