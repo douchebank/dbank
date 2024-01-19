@@ -84,14 +84,12 @@ const RightTab = () => {
             <div>
               {selectedAction === "Buy" ? (
                 <>
-                  <div className=" rounded-xl mt-4">
-                    <div>
+                  <div className=" rounded-3xl shadow-lg mt-4 p-2 ">
+                    <div className="bg-white rounded-full p-2">
                       <button
                         className={`${
-                          sipSelected
-                            ? ""
-                            : "bg-black text-white border rounded-xl"
-                        } w-1/2 p-2 rounded-br-xl`}
+                          sipSelected ? "" : "bg-yellow shadow-md"
+                        } w-1/2 p-2 rounded-full`}
                         onClick={() => {
                           setSipSelected(false);
                         }}
@@ -100,10 +98,8 @@ const RightTab = () => {
                       </button>
                       <button
                         className={`${
-                          sipSelected
-                            ? "bg-black text-white border rounded-xl"
-                            : ""
-                        } w-1/2 p-2 rounded-bl-xl`}
+                          sipSelected ? "bg-yellow shadow-md" : ""
+                        } w-1/2 p-2 rounded-full`}
                         onClick={() => {
                           setSipSelected(true);
                         }}
@@ -111,13 +107,13 @@ const RightTab = () => {
                         SIP
                       </button>
                     </div>
-                    <div className="p-4 flex flex-col gap-4  rounded-xl ">
+                    <div className="p-4 flex flex-col gap-4  rounded-xl font-semibold ">
                       {sipSelected && (
                         <div className="flex items-center gap-4">
                           <label className="">Interval:</label>
                           <input
                             type="number"
-                            className="p-2 px-4 rounded-xl w-full "
+                            className="p-2 px-4 tracking-widest focus:outline-none rounded-xl w-full "
                           />
                         </div>
                       )}
@@ -126,19 +122,22 @@ const RightTab = () => {
                         <label className="">Amount:</label>
                         <input
                           type="number"
-                          className="p-2 px-4 rounded-xl w-full "
+                          className="p-2 px-4 tracking-widest focus:outline-none  rounded-xl w-full "
                         />
                       </div>
                     </div>
-                    <button className=" w-full border border-black rounded-xl px-2 py-4 text-2xl">
+                    <button className=" w-full border border-black bg-white rounded-xl px-4 py-2 text-2xl">
                       Invest
                     </button>
                   </div>
                 </>
               ) : (
-                <>
-                  <p>Sell</p>
-                </>
+                <div className="mt-4 p-2 ">
+                  <button className=" w-4/5 mx-auto block  bg-black text-white rounded-xl px-4 py-2 text-xl mb-4">
+                    Liquidate
+                  </button>
+                  <p className="text-sm text-center">You call only liquidate the whole amount</p>
+                </div>
               )}
             </div>
           </div>
