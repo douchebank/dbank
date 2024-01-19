@@ -7,10 +7,12 @@ import USDT from "../assets/icons/usdt.png";
 import AVAX from "../assets/icons/avalanche.png";
 import ARB from "../assets/icons/arbitrum.png";
 
+import bucketimg from "../assets/bucket/4.jpeg";
+
 export const DummyData: BucketType[] = [
   {
     uid: crypto.randomUUID(),
-    logo: "",
+    logo: `${bucketimg}`,
     title: "Big Cap",
     assets: [
       {
@@ -41,7 +43,7 @@ export const DummyData: BucketType[] = [
   },
   {
     uid: crypto.randomUUID(),
-    logo: "",
+    logo: `${bucketimg}`,
     title: "Mid Cap",
     assets: [
       {
@@ -78,7 +80,7 @@ export const DummyData: BucketType[] = [
   },
   {
     uid: crypto.randomUUID(),
-    logo: "",
+    logo: `${bucketimg}`,
     title: "Small Cap",
     assets: [
       {

@@ -52,8 +52,8 @@ const Bucket = ({
       <div className="relative">
         <div className="flex gap-4">
           <img
-            className="h-28 w-28 my-2 rounded-xl "
-            src={logo ? "" : dummyImg}
+            className="h-28 w-28 my-2 rounded-xl aspect-square object-cover"
+            src={logo ? logo : dummyImg}
             alt="logo"
           />
           <div className="w-full">

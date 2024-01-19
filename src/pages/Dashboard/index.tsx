@@ -3,7 +3,6 @@ import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
 import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
-import { BUCKET_TYPE } from "../../constants/Types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { DummyData } from "../../utils/dummyData";
@@ -38,7 +37,7 @@ const Dashboard = () => {
                         title={buckets.title}
                         price={buckets.price}
                         tvl={buckets.tvl}
-                        logo=""
+                        logo={buckets.logo}
                         type={buckets.type}
                         invested={buckets.invested}
                         assets={buckets.assets}
@@ -75,7 +74,7 @@ const Dashboard = () => {
                               title={bucket.title}
                               price={bucket.price}
                               tvl={bucket.tvl}
-                              logo=""
+                              logo={bucket.logo}
                               type={bucket.type}
                               invested={bucket.invested}
                               assets={bucket.assets}
@@ -108,7 +107,7 @@ const Dashboard = () => {
                           title={bucket.title}
                           price={bucket.price}
                           tvl={bucket.tvl}
-                          logo=""
+                          logo={bucket.logo}
                           type={bucket.type}
                           invested={bucket.invested}
                           assets={bucket.assets}
@@ -126,7 +125,7 @@ const Dashboard = () => {
                           title={bucket.title}
                           price={bucket.price}
                           tvl={bucket.tvl}
-                          logo=""
+                          logo={bucket.logo}
                           type={bucket.type}
                           invested={bucket.invested}
                           assets={bucket.assets}
@@ -142,7 +141,7 @@ const Dashboard = () => {
       </div>
       {/* Right Tab  */}
       <div className="w-[25%] gradient2">
-        <RightTab />
+        <RightTab bucketData={DummyData[1]} />
       </div>
     </div>
   );

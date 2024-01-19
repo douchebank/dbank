@@ -1,11 +1,13 @@
 import AssetCard from "./AssetCard";
 import search from "../../assets/search.svg";
+import { AssetType } from "../../constants/Types";
 
 type AddAssetParam = {
   onClose: () => void;
+  assetData: AssetType[];
 };
 
-const AddAssets = ({ onClose }: AddAssetParam) => {
+const AddAssets = ({ onClose, assetData }: AddAssetParam) => {
   const handleSearch = () => {
     console.log("Handle Search");
   };
@@ -27,8 +29,17 @@ const AddAssets = ({ onClose }: AddAssetParam) => {
       </div>
 
       <div className=" divide-y-2 divide-black divide-opacity-75">
-        <AssetCard isEditable={true} toBeAdded={false} />
-        <AssetCard isEditable={false} toBeAdded={true} />
+        {assetData.map((asset) => {
+          return (
+            <AssetCard assetData={asset} isEditable={true} toBeAdded={false} />
+          );
+        })}
+        {/*  Loop all the assets avaliable to create the bucket */}
+        {assetData.map((asset) => {
+          return (
+            <AssetCard assetData={asset} isEditable={true} toBeAdded={true} />
+          );
+        })}
       </div>
 
       {/* Buttons  */}

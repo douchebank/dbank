@@ -37,7 +37,7 @@ const index = () => {
                   title={bucket.title}
                   price={bucket.price}
                   tvl={bucket.tvl}
-                  logo=""
+                  logo={bucket.logo}
                   type={bucket.type}
                   invested={bucket.invested}
                   assets={bucket.assets}

@@ -2,8 +2,13 @@ import { useState } from "react";
 import dummyImage from "../../assets/recent.png";
 import AssetCard from "./AssetCard";
 import AddAssets from "./AddAssets";
+import { AssetType, BUCKET_TYPE, BucketType } from "../../constants/Types";
 
-const RightTab = () => {
+type RightTabParams = {
+  bucketData: BucketType; // this could be the bucket object , uid , name / if we get the uid then we can fetch it form the contract.
+};
+
+const RightTab = ({ bucketData }: RightTabParams) => {
   const [selectedAction, setSelectedAction] = useState<string>("Buy");
   const [sipSelected, setSipSelected] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -19,18 +24,18 @@ const RightTab = () => {
         {/* Bucket information  */}
         <div className=" flex mx-auto gap-5 my-5">
           <img
-            src={dummyImage}
+            src={bucketData.logo}
             alt="Bucketimage"
-            className=" w-32 h-32 rounded-xl"
+            className=" w-32 h-32 rounded-xl aspect-square object-cover "
           />
           <div>
-            <p className="text-3xl font-semibold">Name of Bucket</p>
+            <p className="text-3xl font-semibold">{bucketData.title}</p>
             <div className=" flex flex-col gap-3 my-3 text-lg font-medium ">
               <p>
-                Price:- <span>100 GHO</span>
+                Price:- <span>{bucketData.price} GHO</span>
               </p>
               <p>
-                TVL:- <span>$ 100</span>
+                TVL:- <span>$ {bucketData.tvl}</span>
               </p>
             </div>
           </div>
@@ -47,20 +52,37 @@ const RightTab = () => {
               <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
                 Assets
               </h1>
-              <AssetCard isEditable={false} toBeAdded={false} />
-              <button
-                onClick={() => setIsEditing(true)}
-                className="p-2  rounded-xl bg-black text-white shadow-md w-[40%] text-xl my-3"
-              >
-                Edit
-              </button>
+              <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar">
+                {bucketData.assets.map((asset: AssetType) => {
+                  return (
+                    <>
+                      <AssetCard
+                        assetData={asset}
+                        isEditable={false}
+                        toBeAdded={false}
+                      />
+                    </>
+                  );
+                })}
+              </div>
+              {bucketData.type === BUCKET_TYPE.PERSONAL && (
+                <button
+                  onClick={() => setIsEditing(true)}
+                  className="p-2  rounded-xl bg-black text-white shadow-md w-[40%] text-xl my-3"
+                >
+                  Edit
+                </button>
+              )}
             </>
           ) : (
             <>
               <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
                 Edit Assets
               </h1>
-              <AddAssets onClose={closeEditingMode} />
+              <AddAssets
+                assetData={bucketData.assets}
+                onClose={closeEditingMode}
+              />
             </>
           )}
         </div>
@@ -139,7 +161,9 @@ const RightTab = () => {
                   <button className=" w-4/5 mx-auto block  bg-black text-white rounded-xl px-4 py-2 text-xl mb-4">
                     Liquidate
                   </button>
-                  <p className="text-sm text-center">You call only liquidate the whole amount</p>
+                  <p className="text-sm text-center">
+                    You call only liquidate the whole amount
+                  </p>
                 </div>
               )}
             </div>
