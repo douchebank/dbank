@@ -14,7 +14,7 @@ const AddAssets = ({ onClose, assetData }: AddAssetParam) => {
   return (
     <div className="w-full relative h-full">
       {/* Search Button  */}
-      <div className="w-[90%] gap-2 flex justify-center items-center mx-auto gradient2 mb-6 border-2 shadow-lg border-black rounded-xl">
+      {/* <div className="w-[90%] gap-2 flex justify-center items-center mx-auto gradient2 mb-2 border-2 shadow-lg border-black rounded-xl">
         <input
           type="text"
           className="p-2 px-4 w-full bg-transparent rounded-s-xl focus:outline-none "
@@ -26,20 +26,30 @@ const AddAssets = ({ onClose, assetData }: AddAssetParam) => {
           src={search}
           alt="search"
         />
-      </div>
+      </div> */}
 
-      <div className=" divide-y-2 divide-black divide-opacity-75">
-        {assetData.map((asset) => {
-          return (
-            <AssetCard assetData={asset} isEditable={true} toBeAdded={false} />
-          );
-        })}
+      <div className=" flex flex-col gap-2 divide-black divide-opacity-75">
+        <p className="font-bold tracking-wide px-5 mx-auto block">Total {assetData.length} </p>
+        <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar">
+          {assetData.map((asset) => {
+            return (
+              <AssetCard
+                assetData={asset}
+                isEditable={true}
+                toBeAdded={false}
+              />
+            );
+          })}
+        </div>
+        <hr  className="w-[85%] mx-auto"/>
         {/*  Loop all the assets avaliable to create the bucket */}
-        {assetData.map((asset) => {
-          return (
-            <AssetCard assetData={asset} isEditable={true} toBeAdded={true} />
-          );
-        })}
+        <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar pb-5 ">
+          {assetData.map((asset) => {
+            return (
+              <AssetCard assetData={asset} isEditable={true} toBeAdded={true} />
+            );
+          })}
+        </div>
       </div>
 
       {/* Buttons  */}
