@@ -42,12 +42,12 @@ const RightTab = () => {
             isEditing && "h-full"
           } `}
         >
-          <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
-            Assets
-          </h1>
           {isPersonalAndEditable && !isEditing ? (
             <>
-              <AssetCard isEditable={false} />
+              <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
+                Assets
+              </h1>
+              <AssetCard isEditable={false} toBeAdded={false} />
               <button
                 onClick={() => setIsEditing(true)}
                 className="p-2  rounded-xl bg-black text-white shadow-md w-[40%] text-xl my-3"
@@ -57,6 +57,9 @@ const RightTab = () => {
             </>
           ) : (
             <>
+              <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
+                Edit Assets
+              </h1>
               <AddAssets onClose={closeEditingMode} />
             </>
           )}
