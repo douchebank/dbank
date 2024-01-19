@@ -12,17 +12,17 @@ const LeftSidebar = () => {
   const currentPath = currentLocation.pathname;
 
   return (
-    <div className="gradient2 rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-fit h-screen min-w-[10em]">
+    <div className=" glass border-r-2 rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-fit h-screen min-w-[10em]">
       <img src={logo} className="h-32" alt="Doosh Bank" />
       <div className="flex flex-col gap-6">
         <Link
           to="/dashboard"
           className={`${
-            currentPath === "/dashboard" ? " text-white shadow-lg  shadow-orange-200 bg-black" : ""
-          } flex items-center rounded-lg p-2 px-4`}
+            currentPath === "/dashboard" ? " shadow-xl  shadow-white glass border-r-2" : ""
+          } flex items-center rounded-lg p-2 px-4 text-white border-white `}
         >
           <img
-            src={currentPath === "/dashboard" ? homeWhite : home}
+            src={homeWhite}
             className="h-12"
             alt="Home"
           />
@@ -31,11 +31,11 @@ const LeftSidebar = () => {
         <Link
           to="/sip"
           className={`${
-            currentPath === "/sip" ? "text-white shadow-lg shadow-lime-200 bg-black" : ""
-          } flex items-center rounded-lg p-2 px-4`}
+            currentPath === "/sip" ? " shadow-xl shadow-white glass border-r-2" : ""
+          } flex items-center text-white rounded-lg p-2 px-4  border-white`}
         >
           <img
-            src={currentPath === "/sip" ? sipWhite : sip}
+            src={sipWhite}
             className="h-12 p-3"
             alt="Sip"
           />

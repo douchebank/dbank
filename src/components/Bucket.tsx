@@ -15,6 +15,7 @@ import optimistic from "../assets/icons/optimistic.png"
 import polygon from "../assets/icons/polygon.png"
 import usdt from "../assets/icons/usdt.png"
 import Modal from "./Modal";
+import bucketimg from "../assets/bucket/4.jpeg";
 
 const Bucket = ({
   uid,
@@ -46,12 +47,12 @@ const Bucket = ({
   }
 
   return (
-    <div className="h-fit min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg overflow-hidden ">
+    <div className="h-fit min-w-[30%] py-5 px-4 rounded-xl glass border-2 border-white shadow-lg overflow-hidden ">
       <div className="relative">
       <div className="flex gap-4">
         <img
-          className="h-28 w-28 my-2 rounded-xl "
-          src={logo ? "" : dummyImg}
+          className="h-28 w-28 my-2 rounded-xl aspect-square object-cover "
+          src={logo ? "" : bucketimg}
           alt="logo"
         />
         <div className="w-full">
@@ -147,7 +148,7 @@ const Bucket = ({
           </>
         ) : (
           <>
-            <button onClick={handleInvestClick} className="text-center border border-transparent hover:border-black rounded-lg bg-lime-400  shadow-md hover:shadow-lg p-2  w-[90%]">
+            <button onClick={handleInvestClick} className="text-center text-white border border-transparent hover:border-black rounded-lg bg-black  shadow-md hover:shadow-lg p-2  w-[90%]">
               Invest
             </button>
           </>

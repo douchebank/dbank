@@ -1,14 +1,15 @@
 import dumyImg from "../assets/recent.png";
+import bucketimg from "../assets/bucket/2.jpeg"
 import { BucketType } from "../constants/Types";
 const WatchList = ({ uid, title, price, tvl, logo }: BucketType) => {
   return (
-    <div className=" w-fit">
-      <div className="flex  gap-4 p-4  gradient2 w-fit rounded-xl shadow-lg">
+    <div className=" w-fit text-white">
+      <div className="flex  gap-4 p-4  glass border-2 border-white  w-fit rounded-xl shadow-lg">
         {/* <div className="flex gap-4 justify-around items-center"> */}
           <img
-            src={logo ? logo : dumyImg}
+            src={logo ? logo : bucketimg}
             alt="largeCap"
-            className="w-24 h-24 my-auto rounded-xl"
+            className="w-24 h-24 my-auto rounded-xl aspect-square object-cover"
           />
           <div className="w-full">
             <p className="text-3xl font-bold tracking-wider text-ellipsis overflow-hidden whitespace-nowrap w-[350px] ">{title}</p>

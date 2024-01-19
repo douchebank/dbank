@@ -1,5 +1,6 @@
 import { useState } from "react";
 import dummyImage from "../../assets/recent.png";
+import bucketimg from "../../assets/bucket/3.jpeg";
 import AssetCard from "./AssetCard";
 import AddAssets from "./AddAssets";
 
@@ -19,9 +20,9 @@ const RightTab = () => {
         {/* Bucket information  */}
         <div className=" flex mx-auto gap-5 my-5">
           <img
-            src={dummyImage}
+            src={bucketimg}
             alt="Bucketimage"
-            className=" w-32 h-32 rounded-xl"
+            className=" w-32 h-32 rounded-xl aspect-square object-cover"
           />
           <div>
             <p className="text-3xl font-semibold">Name of Bucket</p>

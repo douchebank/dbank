@@ -44,3 +44,37 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.bg{
+  background-image: url(./assets/bg.png);
+  background-size: cover;
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+
+}
+
+.txt-shadow{
+  text-shadow: 2px 4px 2px rgba(0,0,0,0.6);
+}
+
+.glass{
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* border: 2px solid rgba(255, 255, 255, 0.217); */
+  /* border: 2px solid black; */
+  }
+
+  .white-placeholder::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  ::-ms-input-placeholder { /* Edge 12 -18 */
+    color:white;
+  }
+
+  .wallet-bg{
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.117) 26%, rgba(229, 229, 229, 0) 100%);
+  }
