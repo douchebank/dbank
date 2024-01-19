@@ -11,14 +11,14 @@ const AssetCard = ({ isEditable }: AssetCardParams) => {
   const value = 10;
   return (
     <div className="w-full m-1 ">
-      <div className="flex justify-between items-center shadow-md gradient2  w-[80%]  mx-auto py-2  px-5 rounded-xl gap-2">
+      <div className="flex justify-between items-center shadow-md gradient2  w-[80%] border border-black   mx-auto py-2  px-5 rounded-xl gap-2">
         <div className="flex justify-center items-center gap-2">
           <img src={polygon} alt="Asset Name" className="h-10 w-10" />
           <p className="text-2xl font-semibold tracking-wider ">MATIC</p>
         </div>
         <label className="text-xl justify-self-end place-self-end  ">
           <input
-            disabled={isEditable}
+            disabled={!isEditable}
             type="number"
             className="py-2 px-2 bg-transparent w-24 text-right outline-none "
             placeholder="0"

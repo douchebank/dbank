@@ -37,7 +37,11 @@ const RightTab = () => {
         </div>
 
         {/* Assets Section  */}
-        <div className=" flex flex-col justify-center items-center">
+        <div
+          className={` flex flex-col justify-center items-center ${
+            isEditing && "h-full"
+          } `}
+        >
           <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
             Assets
           </h1>
@@ -80,10 +84,14 @@ const RightTab = () => {
             <div>
               {selectedAction === "Buy" ? (
                 <>
-                  <div className="gradient2 rounded-xl mt-4">
+                  <div className=" rounded-xl mt-4">
                     <div>
                       <button
-                        className={`${sipSelected ? "bg-grey" : ""} w-1/2 p-2 rounded-br-xl`}
+                        className={`${
+                          sipSelected
+                            ? ""
+                            : "bg-black text-white border rounded-xl"
+                        } w-1/2 p-2 rounded-br-xl`}
                         onClick={() => {
                           setSipSelected(false);
                         }}
@@ -91,7 +99,11 @@ const RightTab = () => {
                         Lumsum
                       </button>
                       <button
-                        className={`${sipSelected ? "" : "bg-grey"} w-1/2 p-2 rounded-bl-xl`}
+                        className={`${
+                          sipSelected
+                            ? "bg-black text-white border rounded-xl"
+                            : ""
+                        } w-1/2 p-2 rounded-bl-xl`}
                         onClick={() => {
                           setSipSelected(true);
                         }}
@@ -99,7 +111,7 @@ const RightTab = () => {
                         SIP
                       </button>
                     </div>
-                    <div className="p-4 flex flex-col gap-4 gradient2 rounded-xl ">
+                    <div className="p-4 flex flex-col gap-4  rounded-xl ">
                       {sipSelected && (
                         <div className="flex items-center gap-4">
                           <label className="">Interval:</label>
@@ -118,6 +130,9 @@ const RightTab = () => {
                         />
                       </div>
                     </div>
+                    <button className=" w-full border border-black rounded-xl px-2 py-4 text-2xl">
+                      Invest
+                    </button>
                   </div>
                 </>
               ) : (

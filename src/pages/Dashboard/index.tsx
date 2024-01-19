@@ -224,7 +224,7 @@ const Dashboard = () => {
         </div>
       </div>
       {/* Right Tab  */}
-      <div className="w-[25%] bg-grey">
+      <div className="w-[25%] gradient">
         <RightTab />
       </div>
     </div>
