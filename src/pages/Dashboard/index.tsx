@@ -6,6 +6,7 @@ import WatchList from "../../components/WatchList";
 import { BUCKET_TYPE } from "../../constants/Types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { DummyData } from "../../utils/dummyData";
 
 const Dashboard = () => {
   const isInvested = true;
@@ -17,7 +18,7 @@ const Dashboard = () => {
       {/* </div> */}
 
       {/* Middle Part  */}
-      <div className="w-[65%]  flex flex-col p-8 gap-5">
+      <div className="w-[65%]  flex flex-col p-8 pb-1 gap-5">
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
           <MyWallet />
@@ -29,42 +30,22 @@ const Dashboard = () => {
               </p>
               <div className="pr-2 flex flex-col gap-4">
                 {/* Map over it instead of copy pasting  */}
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
+                {DummyData.map((buckets) => {
+                  return (
+                    <>
+                      <WatchList
+                        uid={buckets.uid}
+                        title={buckets.title}
+                        price={buckets.price}
+                        tvl={buckets.tvl}
+                        logo=""
+                        type={buckets.type}
+                        invested={buckets.invested}
+                        assets={buckets.assets}
+                      />
+                    </>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -85,66 +66,24 @@ const Dashboard = () => {
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
                   >
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap dfadf dfasdfaasdfadf  sdfasd"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={true}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
+                    {DummyData.map((bucket) => {
+                      return (
+                        <>
+                          <SwiperSlide>
+                            <Bucket
+                              uid={bucket.uid}
+                              title={bucket.title}
+                              price={bucket.price}
+                              tvl={bucket.tvl}
+                              logo=""
+                              type={bucket.type}
+                              invested={bucket.invested}
+                              assets={bucket.assets}
+                            />
+                          </SwiperSlide>
+                        </>
+                      );
+                    })}
                   </Swiper>
                 </div>
               </>
@@ -160,66 +99,42 @@ const Dashboard = () => {
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
               >
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
+                {DummyData.map((bucket) => {
+                  return (
+                    <>
+                      <SwiperSlide>
+                        <Bucket
+                          uid={bucket.uid}
+                          title={bucket.title}
+                          price={bucket.price}
+                          tvl={bucket.tvl}
+                          logo=""
+                          type={bucket.type}
+                          invested={bucket.invested}
+                          assets={bucket.assets}
+                        />
+                      </SwiperSlide>
+                    </>
+                  );
+                })}
+                {DummyData.map((bucket) => {
+                  return (
+                    <>
+                      <SwiperSlide>
+                        <Bucket
+                          uid={bucket.uid}
+                          title={bucket.title}
+                          price={bucket.price}
+                          tvl={bucket.tvl}
+                          logo=""
+                          type={bucket.type}
+                          invested={bucket.invested}
+                          assets={bucket.assets}
+                        />
+                      </SwiperSlide>
+                    </>
+                  );
+                })}
               </Swiper>
             </div>
           </div>
