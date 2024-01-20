@@ -35,6 +35,77 @@ export const DummyData: BucketType[] = [
         name: "USDT",
         percentage: 10,
       },
+      {
+        logo: `${OPT}`,
+        name: "OPT",
+        percentage: 15,
+      },
+      {
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 10,
+      },
+      {
+        logo: `${OPT}`,
+        name: "OPT",
+        percentage: 15,
+      },
+      {
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 10,
+      },
+    ],
+    price: 100,
+    tvl: 1000,
+    invested: false,
+    type: BUCKET_TYPE.GENERAL,
+  },
+  {
+    uid: crypto.randomUUID(),
+    logo: `${bucketimg}`,
+    title: "Big Cap",
+    assets: [
+      {
+        logo: `${ETH}`,
+        name: "ETH",
+        percentage: 50,
+      },
+      {
+        logo: `${MATIC}`,
+        name: "MATIC",
+        percentage: 25,
+      },
+      {
+        logo: `${OPT}`,
+        name: "OPT",
+        percentage: 15,
+      },
+      {
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 10,
+      },
+      {
+        logo: `${OPT}`,
+        name: "OPT",
+        percentage: 15,
+      },
+      {
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 10,
+      },
+      {
+        logo: `${OPT}`,
+        name: "OPT",
+        percentage: 15,
+      },
+      {
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 10,
+      },
     ],
     price: 100,
     tvl: 1000,

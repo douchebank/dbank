@@ -3,18 +3,19 @@ import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
 import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import plus from "../../assets/plus.svg";
+import { Swiper, SwiperSlide} from "swiper/react";
+import {  Navigation } from 'swiper/modules';
 import { DummyData } from "../../utils/dummyData";
+import 'swiper/css/navigation';
+import "swiper/css";
 
 const Dashboard = () => {
   const isInvested = true;
 
   return (
     <div className="flex w-full max-h-screen bg2">
-      {/* <div className="w-[10%]"> */}
       <LeftSidebar />
-      {/* </div> */}
 
       {/* Middle Part  */}
       <div className="w-[65%]  flex flex-col p-8 pb-1 gap-5">
@@ -55,20 +56,22 @@ const Dashboard = () => {
           <div>
             {isInvested === true && (
               <>
-                <h1 className=" txt-shadow font-bold tracking-wide text-2xl">
+                <h1 className=" txt-shadow font-bold tracking-wide text-2xl mb-4">
                   Invested Accounts
                 </h1>
-                <div className="flex py-4 h-full overflow-hidden">
+                <div className="flex overflow-hidden">
                   <Swiper
                     spaceBetween={20}
                     slidesPerView={3}
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
+                    navigation={true}
+                    modules={[Navigation]}
                   >
                     {DummyData.map((bucket) => {
                       return (
                         <>
-                          <SwiperSlide>
+                          <SwiperSlide >
                             <Bucket
                               uid={bucket.uid}
                               title={bucket.title}
@@ -93,10 +96,12 @@ const Dashboard = () => {
             <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
             <div className="flex gap-5 py-4 overflow-hidden">
               <Swiper
-                spaceBetween={50}
+                spaceBetween={20}
                 slidesPerView={3}
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
+                navigation={true}
+                modules={[Navigation]}
               >
                 {DummyData.map((bucket) => {
                   return (
@@ -134,6 +139,12 @@ const Dashboard = () => {
                     </>
                   );
                 })}
+                <SwiperSlide>
+                  <div className="h-full min-w-[30%] flex justify-center items-center py-5 px-4 rounded-xl gradient2 shadow-lg">
+                    <img className="h-20 w-20 p-6 rounded-full bg-white bg-opacity-45 shadow-lg" src={plus} alt="add more"/> 
+                    <p className="absolute bottom-[2em] text-center text-lg w-4/5">Create your own personalised investment bucket! 🚀</p>
+                  </div>
+                </SwiperSlide>
               </Swiper>
             </div>
           </div>
