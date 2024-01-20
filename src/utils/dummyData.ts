@@ -165,14 +165,9 @@ export const DummyData: BucketType[] = [
         percentage: 25,
       },
       {
-        logo: `${OPT}`,
-        name: "OPT",
-        percentage: 25,
-      },
-      {
-        logo: `${AVAX}`,
-        name: "AVAX",
-        percentage: 25,
+        logo: `${USDT}`,
+        name: "USDT",
+        percentage: 20,
       },
     ],
     price: 10,

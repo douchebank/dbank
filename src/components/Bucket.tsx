@@ -43,11 +43,11 @@ const Bucket = ({
 
   const remainingPercentage = () => {
     let totalPercentage = 0;
-    for (let i = 3; i <  assets.length; i++){
-      totalPercentage += assets[i].percentage
+    for (let i = 3; i < assets.length; i++) {
+      totalPercentage += assets[i].percentage;
     }
     return totalPercentage;
-  }
+  };
 
   return (
     <div className="h-fit min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg  overflow-hidden">
@@ -77,27 +77,68 @@ const Bucket = ({
       <div className="flex pb-2 mt-4 min-w-full ">
         <Swiper
           spaceBetween={10}
-          slidesPerView={4}
+          slidesPerView={assets.length < 4 ? assets.length : 4}
         >
-          {showExtraCoins
-            ? assets.map((asset, index) => (
-                <SwiperSlide key={index}>
-                  <div className="">
-                    <div className="relative">
-                      <p className="absolute cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">
-                        {asset.name}
-                      </p>
-                      <img
-                        src={asset.logo}
-                        className="h-10 w-10 mx-auto rounded-full shadow-md"
-                        alt="logo"
-                      />
-                    </div>
-                    <p className="text-center text-xs">{asset.percentage}%</p>
+          {assets.length > 4 ? (
+            <>
+              {showExtraCoins && assets.length > 4
+                ? assets.map((asset, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="">
+                        <div className="relative">
+                          <p className="absolute cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">
+                            {asset.name}
+                          </p>
+                          <img
+                            src={asset.logo}
+                            className="h-10 w-10 mx-auto rounded-full shadow-md"
+                            alt="logo"
+                          />
+                        </div>
+                        <p className="text-center text-xs">
+                          {asset.percentage}%
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                : assets.slice(0, 3).map((asset, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="">
+                        <div className="relative">
+                          <p className="absolute cursor-pointer left-1/2 translate-x-[-50%] justify-center items-center bg-white h-10 w-10 rounded-full font-semibold opacity-0 hover:bg-opacity-75 hover:opacity-100 hover:flex">
+                            {asset.name}
+                          </p>
+                          <img
+                            src={asset.logo}
+                            className="h-10 w-10 mx-auto rounded-full shadow-md"
+                            alt="logo"
+                          />
+                        </div>
+                        <p className="text-center text-xs">
+                          {asset.percentage}%
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+              {!showExtraCoins && assets.length > 4 && (
+                <SwiperSlide>
+                  <div
+                    className="min-w-fit m-auto h-10 w-10 bg-white bg-opacity-45 rounded-full flex items-center justify-center  shadow-md"
+                    onClick={() => {
+                      setShowExtraCoins(true);
+                    }}
+                  >
+                    <p className="text-center text-lg">+{assets.length - 3}</p>
                   </div>
+                  <p className="text-center text-xs">
+                    {remainingPercentage()}%
+                  </p>
                 </SwiperSlide>
-              ))
-            : assets.slice(0, 3).map((asset, index) => (
+              )}
+            </>
+          ) : (
+            <>
+              {assets.map((asset, index) => (
                 <SwiperSlide key={index}>
                   <div className="">
                     <div className="relative">
@@ -114,16 +155,7 @@ const Bucket = ({
                   </div>
                 </SwiperSlide>
               ))}
-          {!showExtraCoins && assets.length > 3 && (
-            <SwiperSlide >
-              <div
-                className="min-w-fit m-auto h-10 w-10 bg-white bg-opacity-45 rounded-full flex items-center justify-center  shadow-md"
-                onClick={() => {setShowExtraCoins(true);}}
-              >
-                <p className="text-center text-lg">+{assets.length - 3}</p>
-              </div>
-                <p className="text-center text-xs">{remainingPercentage()}%</p>
-            </SwiperSlide>
+            </>
           )}
         </Swiper>
       </div>
