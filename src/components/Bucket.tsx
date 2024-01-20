@@ -47,8 +47,8 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
   };
 
   return (
-    <div className="relative">
-      <div className="h-fit min-w-[30%] py-5 px-4 rounded-xl gradient2 shadow-lg  overflow-hidden">
+    <div className={`relative  ${location.pathname === "/sip" && "w-[24%]"}`}>
+      <div className="h-fit min-w-[30%]  py-5 px-4 rounded-xl gradient2 shadow-lg  overflow-hidden">
         <div className="flex gap-4">
           <img
             className="h-28 w-28 my-2 rounded-xl aspect-square object-cover"
@@ -73,7 +73,7 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
           </div>
         </div>
 
-        <div className="flex pb-2 mt-4 min-w-full ">
+        <div className="flex pb-2 mt-4 min-w-full max-w-[400px] ">
           <Swiper
             spaceBetween={10}
             slidesPerView={
@@ -163,7 +163,7 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
           </Swiper>
         </div>
         <div className="flex justify-center items-center gap-2">
-          {bucketData.invested ? (
+          {bucketData.invested && location.pathname !== "/sip" ? (
             <>
               <button
                 onClick={() => dataForRightTab(CALL_TYPE.SELL, bucketData)}
@@ -188,12 +188,12 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
               </button>
             </>
           )}
-        <img
-          className="h-7 w-[10%] "
-          onClick={toggleBookmark}
-          src={bookmark ? selectedBookmark : bookmarkImg}
-          alt="bookmark"
-        />
+          <img
+            className="h-7 w-[10%] "
+            onClick={toggleBookmark}
+            src={bookmark ? selectedBookmark : bookmarkImg}
+            alt="bookmark"
+          />
         </div>
       </div>
 

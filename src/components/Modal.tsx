@@ -11,7 +11,7 @@ const Modal = ({ onClose, bucketData }: ModalParams) => {
   return (
     <div
       onClick={onClose}
-      className="absolute top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-75 z-50"
+      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-75 z-50"
     >
       <div
         onClick={handleChildClick}
