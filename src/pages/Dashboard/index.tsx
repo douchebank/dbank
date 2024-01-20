@@ -11,74 +11,76 @@ const Dashboard = () => {
   const isInvested = true;
 
   return (
-    <div className="flex w-full max-h-screen ">
+    <div className="flex w-full  h-full max-h-screen bg2">
       <div className="w-[10%]">
         <LeftSidebar />
       </div>
-      {/* Middle Part  */}
-      <div className="w-[65%] flex flex-col pl-8 pt-5 gap-5">
 
+      {/* Middle Part  */}
+      <div className="w-[65%]  flex flex-col p-8 gap-5">
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
-          <div className="w-2/5 flex justify-center justify-self-center ">
-            <MyWallet />
-          </div>
-          <div className="w-3/5 px-6">
-            <p className="font-bold tracking-wide text-xl mb-2">WatchList</p>
+          <MyWallet />
 
-            <div className="h-[90%] w-fit overflow-y-scroll flex flex-col gap-4 pr-4 scrollbar">
-              {/* Map over it instead of copy pasting  */}
-              <WatchList
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-              />
-              <WatchList
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-              />
-              <WatchList
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-              />
-              <WatchList
-                uid="1"
-                title="Big Cap"
-                price={100}
-                tvl={1000}
-                logo=""
-                type={BUCKET_TYPE.GENERAL}
-                invested={false}
-              />
+          <div className="w-3/5 px-6">
+            <div className="relative h-full w-fit overflow-y-scroll  mx-auto scrollbar">
+              <p className="sticky top-0 bg-white w-full font-bold tracking-wide text-2xl pb-2">
+                WatchList
+              </p>
+              <div className="pr-2 flex flex-col gap-4">
+                {/* Map over it instead of copy pasting  */}
+                <WatchList
+                  uid="1"
+                  title="Big Cap"
+                  price={100}
+                  tvl={1000}
+                  logo=""
+                  type={BUCKET_TYPE.GENERAL}
+                  invested={false}
+                />
+                <WatchList
+                  uid="1"
+                  title="Big Cap"
+                  price={100}
+                  tvl={1000}
+                  logo=""
+                  type={BUCKET_TYPE.GENERAL}
+                  invested={false}
+                />
+                <WatchList
+                  uid="1"
+                  title="Big Cap"
+                  price={100}
+                  tvl={1000}
+                  logo=""
+                  type={BUCKET_TYPE.GENERAL}
+                  invested={false}
+                />
+                <WatchList
+                  uid="1"
+                  title="Big Cap"
+                  price={100}
+                  tvl={1000}
+                  logo=""
+                  type={BUCKET_TYPE.GENERAL}
+                  invested={false}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* lowerSection */}
-        <div className=" flex flex-col gap-5 h-3/5 px-5 overflow-y-scroll scrollbar ">
+        <div className=" flex flex-col gap-5 h-3/5 overflow-y-scroll scrollbar pr-2 ">
           <div>
             {isInvested === true && (
               <>
-                <h1 className="font-bold tracking-wide text-2xl">
+                <h1 className=" txt-shadow font-bold tracking-wide text-2xl">
                   Invested Accounts
                 </h1>
-                <div className="flex gap-5 py-4  h-full overflow-x-scroll scrollbar">
+                <div className="flex py-4 h-full overflow-hidden">
                   <Swiper
-                    spaceBetween={50}
+                    spaceBetween={20}
                     slidesPerView={3}
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
@@ -86,7 +88,7 @@ const Dashboard = () => {
                     <SwiperSlide>
                       <Bucket
                         uid="1"
-                        title="Big Cap"
+                        title="Big Cap dfadf dfasdfaasdfadf  sdfasd"
                         price={100}
                         tvl={1000}
                         logo=""
@@ -151,7 +153,7 @@ const Dashboard = () => {
 
           <div>
             <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
-            <div className="flex gap-5 py-4  overflow-x-scroll overflow-hidden scrollbar">
+            <div className="flex gap-5 py-4 overflow-hidden">
               <Swiper
                 spaceBetween={50}
                 slidesPerView={3}
@@ -224,7 +226,7 @@ const Dashboard = () => {
         </div>
       </div>
       {/* Right Tab  */}
-      <div className="w-[25%] gradient">
+      <div className="w-[25%] gradient2">
         <RightTab />
       </div>
     </div>

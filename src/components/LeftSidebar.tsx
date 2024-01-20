@@ -33,9 +33,9 @@ const LeftSidebar = () => {
   };
 
   return (
-    <div className="gradient2 rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-full h-full ">
+    <div className="gradient2 relative rounded-r-3xl p-4 shadow-lg shadow-gray-800 w-full h-full ">
       <img src={logo} className="h-32 mx-auto" alt="Doosh Bank" />
-      <div className="flex flex-col gap-6 mb-52">
+      <div className="flex flex-col gap-6">
         <Link
           to="/dashboard"
           className={`${
@@ -82,9 +82,9 @@ const LeftSidebar = () => {
           <p className="text-xl font-semibold tracking-wide ">Account</p>
         </Link>
       </div>
-      <div className={`flex items-center rounded-lg p-2 px-4 cursor-pointer`}>
+      <div className={`flex items-center absolute bottom-2 left-1/2 translate-x-[-50%] w-fit rounded-lg p-2 px-4 cursor-pointer`}>
         <p
-          className="text-xl font-semibold tracking-wide"
+          className="text-xl font-semibold tracking-wide whitespace-nowrap"
           onClick={openLogOutModal}
         >
           Log Out
