@@ -1,6 +1,7 @@
 import AssetCard from "./AssetCard";
 import search from "../../assets/search.svg";
 import { AssetType } from "../../constants/Types";
+import { DummyAssets } from "../../utils/dummyAssets";
 
 type AddAssetParam = {
   onClose: () => void;
@@ -29,7 +30,9 @@ const AddAssets = ({ onClose, assetData }: AddAssetParam) => {
       </div> */}
 
       <div className=" flex flex-col gap-2 divide-black divide-opacity-75">
-        <p className="font-bold tracking-wide px-5 mx-auto block">Total {assetData.length} </p>
+        <p className="font-bold tracking-wide px-5 mx-auto block">
+          Total {assetData.length}{" "}
+        </p>
         <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar">
           {assetData.map((asset) => {
             return (
@@ -41,10 +44,10 @@ const AddAssets = ({ onClose, assetData }: AddAssetParam) => {
             );
           })}
         </div>
-        <hr  className="w-[85%] mx-auto"/>
+        <hr className="w-[85%] mx-auto" />
         {/*  Loop all the assets avaliable to create the bucket */}
         <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar pb-5 ">
-          {assetData.map((asset) => {
+          {DummyAssets.map((asset) => {
             return (
               <AssetCard assetData={asset} isEditable={true} toBeAdded={true} />
             );

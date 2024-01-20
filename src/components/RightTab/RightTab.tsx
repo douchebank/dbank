@@ -179,22 +179,24 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
           </div>
         ) : (
           <>
-            <div className="pt-10">
-              <p className="text-center text-xl font-bold tracking-wider ">
-                Create you own investment bucket that will take your protfolio
-                to the moon 🚀.
-              </p>
-              <p className="text-lg font-semibold tracking-wide mt-5">
-                Below are the steps to create your own unique bucket.
-              </p>
-              <ul className=" flex  flex-col gap-2 py-3">
-                <li>1. Create select a unique name for your portfolio</li>
-                <li>
-                  2. Add your favourite assets that will take you to the moon
-                </li>
-                <li>3. Create a sip payment to not miss on the lows</li>
-              </ul>
-            </div>
+            {!isEditing && (
+              <div className="pt-10">
+                <p className="text-center text-xl font-bold tracking-wider ">
+                  Create you own investment bucket that will take your protfolio
+                  to the moon 🚀.
+                </p>
+                <p className="text-lg font-semibold tracking-wide mt-5">
+                  Below are the steps to create your own unique bucket.
+                </p>
+                <ul className=" flex  flex-col gap-2 py-3">
+                  <li>1. Create select a unique name for your portfolio</li>
+                  <li>
+                    2. Add your favourite assets that will take you to the moon
+                  </li>
+                  <li>3. Create a sip payment to not miss on the lows</li>
+                </ul>
+              </div>
+            )}
           </>
         )}
       </div>
