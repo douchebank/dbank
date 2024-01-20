@@ -8,20 +8,12 @@ import "swiper/css";
 import { DummyData } from "../../utils/dummyData";
 import { BUCKET_TYPE, BucketType, CALL_TYPE } from "../../constants/Types";
 import { useState } from "react";
+import { NewBucketData } from "../../constants/Defaults";
 
 const Dashboard = () => {
   const isInvested = true;
   const [callType, setCallType] = useState<CALL_TYPE>(CALL_TYPE.CREATE);
-  const [bucketData, setBucketData] = useState<BucketType>({
-    uid: crypto.randomUUID(),
-    logo: "",
-    title: "New Bucket",
-    assets: [],
-    price: 10,
-    tvl: 0,
-    invested: false,
-    type: BUCKET_TYPE.PERSONAL,
-  });
+  const [bucketData, setBucketData] = useState<BucketType>(NewBucketData);
 
   const dataForRightTab = (_callType: CALL_TYPE, _bucketData: BucketType) => {
     setCallType(_callType);
@@ -40,7 +32,7 @@ const Dashboard = () => {
         <div className=" h-[42%]  flex  justify-between  ">
           <MyWallet
             dataForRightTab={(_callType) =>
-              dataForRightTab(_callType, bucketData)
+              dataForRightTab(_callType, NewBucketData)
             }
           />
 

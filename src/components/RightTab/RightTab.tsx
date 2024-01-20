@@ -2,14 +2,19 @@ import { useState } from "react";
 import dummyImage from "../../assets/recent.png";
 import AssetCard from "./AssetCard";
 import AddAssets from "./AddAssets";
-import { AssetType, BUCKET_TYPE, BucketType, CALL_TYPE } from "../../constants/Types";
+import {
+  AssetType,
+  BUCKET_TYPE,
+  BucketType,
+  CALL_TYPE,
+} from "../../constants/Types";
 
 type RightTabParams = {
   bucketData: BucketType; // this could be the bucket object , uid , name / if we get the uid then we can fetch it form the contract.
   callType: CALL_TYPE;
 };
 
-const RightTab = ({ bucketData }: RightTabParams) => {
+const RightTab = ({ callType, bucketData }: RightTabParams) => {
   const [selectedAction, setSelectedAction] = useState<string>("Buy");
   const [sipSelected, setSipSelected] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -25,7 +30,7 @@ const RightTab = ({ bucketData }: RightTabParams) => {
         {/* Bucket information  */}
         <div className=" flex mx-auto gap-5 my-5">
           <img
-            src={bucketData.logo}
+            src={callType === CALL_TYPE.CREATE ? dummyImage : bucketData.logo}
             alt="Bucketimage"
             className=" w-32 h-32 rounded-xl aspect-square object-cover "
           />
@@ -50,8 +55,8 @@ const RightTab = ({ bucketData }: RightTabParams) => {
         >
           {isPersonalAndEditable && !isEditing ? (
             <>
-              <h1 className="text-3xl my-4 font-semibold tracking-wide text-center ">
-                Assets
+              <h1 className="text-3xl my-4 font-semibold tracking-wide text-center flex justify-center gap-1">
+                Assets <span className="font-light text-lg text-center">({bucketData.assets.length}) </span>
               </h1>
               <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar">
                 {bucketData.assets.map((asset: AssetType) => {
@@ -71,7 +76,7 @@ const RightTab = ({ bucketData }: RightTabParams) => {
                   onClick={() => setIsEditing(true)}
                   className="p-2  rounded-xl bg-black text-white shadow-md w-[40%] text-xl my-3"
                 >
-                  Edit
+                  {bucketData.assets.length > 0 ? "Edit " : "Add Assets"}
                 </button>
               )}
             </>
