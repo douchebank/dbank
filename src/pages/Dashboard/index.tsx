@@ -11,8 +11,10 @@ const Dashboard = () => {
   const isInvested = true;
 
   return (
-    <div className="flex w-full max-h-screen bg">
-      <LeftSidebar />
+    <div className="flex w-full  h-full max-h-screen bg">
+      <div className="w-[10%]">
+        <LeftSidebar />
+      </div>
 
       {/* Middle Part  */}
       <div className="w-[65%]  flex flex-col p-8 gap-5">
