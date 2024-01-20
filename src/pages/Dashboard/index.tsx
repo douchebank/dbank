@@ -6,9 +6,27 @@ import WatchList from "../../components/WatchList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { DummyData } from "../../utils/dummyData";
+import { BUCKET_TYPE, BucketType, CALL_TYPE } from "../../constants/Types";
+import { useState } from "react";
 
 const Dashboard = () => {
   const isInvested = true;
+  const [callType, setCallType] = useState<CALL_TYPE>(CALL_TYPE.CREATE);
+  const [bucketData, setBucketData] = useState<BucketType>({
+    uid: crypto.randomUUID(),
+    logo: "",
+    title: "New Bucket",
+    assets: [],
+    price: 10,
+    tvl: 0,
+    invested: false,
+    type: BUCKET_TYPE.PERSONAL,
+  });
+
+  const dataForRightTab = (_callType: CALL_TYPE, _bucketData: BucketType) => {
+    setCallType(_callType);
+    setBucketData(_bucketData);
+  };
 
   return (
     <div className="flex w-full max-h-screen bg2">
@@ -20,7 +38,11 @@ const Dashboard = () => {
       <div className="w-[65%]  flex flex-col p-8 pb-1 gap-5">
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
-          <MyWallet />
+          <MyWallet
+            dataForRightTab={(_callType) =>
+              dataForRightTab(_callType, bucketData)
+            }
+          />
 
           <div className="w-3/5 px-6">
             <div className="relative h-full w-fit overflow-y-scroll  mx-auto scrollbar">
@@ -29,18 +51,14 @@ const Dashboard = () => {
               </p>
               <div className="pr-2 flex flex-col gap-4">
                 {/* Map over it instead of copy pasting  */}
-                {DummyData.map((buckets) => {
+                {DummyData.map((bucketsData) => {
                   return (
                     <>
                       <WatchList
-                        uid={buckets.uid}
-                        title={buckets.title}
-                        price={buckets.price}
-                        tvl={buckets.tvl}
-                        logo={buckets.logo}
-                        type={buckets.type}
-                        invested={buckets.invested}
-                        assets={buckets.assets}
+                        bucketData={bucketsData}
+                        dataForRightTab={(_callType, _bucketData) =>
+                          dataForRightTab(_callType, _bucketData)
+                        }
                       />
                     </>
                   );
@@ -65,19 +83,15 @@ const Dashboard = () => {
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
                   >
-                    {DummyData.map((bucket) => {
+                    {DummyData.map((bucketsData) => {
                       return (
                         <>
                           <SwiperSlide>
                             <Bucket
-                              uid={bucket.uid}
-                              title={bucket.title}
-                              price={bucket.price}
-                              tvl={bucket.tvl}
-                              logo={bucket.logo}
-                              type={bucket.type}
-                              invested={bucket.invested}
-                              assets={bucket.assets}
+                              bucketData={bucketsData}
+                              dataForRightTab={(_callType, _bucketData) =>
+                                dataForRightTab(_callType, _bucketData)
+                              }
                             />
                           </SwiperSlide>
                         </>
@@ -98,37 +112,29 @@ const Dashboard = () => {
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
               >
-                {DummyData.map((bucket) => {
+                {DummyData.map((bucketsData) => {
                   return (
                     <>
                       <SwiperSlide>
                         <Bucket
-                          uid={bucket.uid}
-                          title={bucket.title}
-                          price={bucket.price}
-                          tvl={bucket.tvl}
-                          logo={bucket.logo}
-                          type={bucket.type}
-                          invested={bucket.invested}
-                          assets={bucket.assets}
+                          bucketData={bucketsData}
+                          dataForRightTab={(_callType, _bucketData) =>
+                            dataForRightTab(_callType, _bucketData)
+                          }
                         />
                       </SwiperSlide>
                     </>
                   );
                 })}
-                {DummyData.map((bucket) => {
+                {DummyData.map((bucketsData) => {
                   return (
                     <>
                       <SwiperSlide>
                         <Bucket
-                          uid={bucket.uid}
-                          title={bucket.title}
-                          price={bucket.price}
-                          tvl={bucket.tvl}
-                          logo={bucket.logo}
-                          type={bucket.type}
-                          invested={bucket.invested}
-                          assets={bucket.assets}
+                          bucketData={bucketsData}
+                          dataForRightTab={(_callType, _bucketData) =>
+                            dataForRightTab(_callType, _bucketData)
+                          }
                         />
                       </SwiperSlide>
                     </>
@@ -141,7 +147,7 @@ const Dashboard = () => {
       </div>
       {/* Right Tab  */}
       <div className="w-[25%] gradient2">
-        <RightTab bucketData={DummyData[1]} />
+        <RightTab callType={callType} bucketData={bucketData} />
       </div>
     </div>
   );

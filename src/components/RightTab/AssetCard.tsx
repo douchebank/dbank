@@ -20,7 +20,7 @@ const AssetCard = ({ isEditable, toBeAdded, assetData }: AssetCardParams) => {
     <div className="w-full m-1 py-2">
       <div className="flex justify-between items-center shadow-md gradient2  w-[80%] border border-black   mx-auto py-2  px-5 rounded-xl gap-2">
         <div className="flex justify-center items-center gap-2">
-          <img src={assetData.logo} alt="Asset Name" className="h-10 w-10" />
+          <img src={assetData.logo} alt="Asset Name" className="h-10 w-10 rounded-full" />
           <p className="text-2xl font-semibold tracking-wider ">
             {assetData.name}
           </p>

@@ -3,28 +3,17 @@ import { useLocation } from "react-router-dom";
 import dummyImg from "../assets/recent.png";
 import bookmarkImg from "../assets/bookmark.svg";
 import selectedBookmark from "../assets/selectedBookmark.svg";
-import { BucketType } from "../constants/Types";
+import { BucketType, CALL_TYPE } from "../constants/Types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
-import ethereum from "../assets/icons/ethereum.png";
-import avalanche from "../assets/icons/avalanche.png";
-import arbitrum from "../assets/icons/arbitrum.png";
-import optimistic from "../assets/icons/optimistic.png";
-import polygon from "../assets/icons/polygon.png";
-import usdt from "../assets/icons/usdt.png";
 import Modal from "./Modal";
 
-const Bucket = ({
-  uid,
-  logo,
-  title,
-  assets,
-  price,
-  tvl,
-  invested,
-  type,
-}: BucketType) => {
+type BucketParams = {
+  bucketData: BucketType;
+  dataForRightTab: (_callType: CALL_TYPE, _bucketData: BucketType) => void;
+};
+
+const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
   const [bookmark, setBookmark] = useState(false);
   const [openModal, setModalOpen] = useState(false);
   const toggleBookmark = () => {
@@ -44,6 +33,7 @@ const Bucket = ({
       location.pathname === "/dashboard/"
     ) {
       console.log(location.pathname, "You are in dashboard");
+      dataForRightTab(CALL_TYPE.BUY, bucketData);
     }
   };
 
@@ -53,21 +43,21 @@ const Bucket = ({
         <div className="flex gap-4">
           <img
             className="h-28 w-28 my-2 rounded-xl aspect-square object-cover"
-            src={logo ? logo : dummyImg}
+            src={bucketData.logo ? bucketData.logo : dummyImg}
             alt="logo"
           />
           <div className="w-full">
             <div className="flex justify-between items-center">
               <p className="text-2xl max-h-16 font-bold tracking-wide overflow-hidden line-clamp-2">
-                {title}
+                {bucketData.title}
               </p>
             </div>
             <div className="flex flex-col justify-between gap-1 mt-2">
               <p>
-                Price:- <span className="text-sm">{price} GHO</span>
+                Price:- <span className="text-sm">{bucketData.price} GHO</span>
               </p>
               <p>
-                TVL:- <span className="text-sm">${tvl}</span>
+                TVL:- <span className="text-sm">${bucketData.tvl}</span>
               </p>
             </div>
           </div>
@@ -80,7 +70,7 @@ const Bucket = ({
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {assets.map((asset) => {
+            {bucketData.assets.map((asset) => {
               return (
                 <>
                   <SwiperSlide>
@@ -104,19 +94,25 @@ const Bucket = ({
           </Swiper>
         </div>
         <div className="flex justify-center items-center gap-2">
-          {invested ? (
+          {bucketData.invested ? (
             <>
-              <button className="w-full text-center border border-transparent hover:border-black rounded-lg bg-rose-400 p-2 shadow-md hover:shadow-lg ">
+              <button
+                onClick={() => dataForRightTab(CALL_TYPE.SELL, bucketData)}
+                className="w-full text-center border border-transparent hover:border-black rounded-lg bg-rose-400 p-2 shadow-md hover:shadow-lg "
+              >
                 Sell
               </button>
-              <button className="w-full text-center border border-transparent hover:border-black rounded-lg bg-lime-400 p-2 shadow-md hover:shadow-lg">
+              <button
+                onClick={() => dataForRightTab(CALL_TYPE.BUY, bucketData)}
+                className="w-full text-center border border-transparent hover:border-black rounded-lg bg-lime-400 p-2 shadow-md hover:shadow-lg"
+              >
                 Buy More
               </button>
             </>
           ) : (
             <>
               <button
-                onClick={handleInvestClick}
+                onClick={() => handleInvestClick()}
                 className="text-center border border-transparent hover:border-black rounded-lg bg-lime-400  shadow-md hover:shadow-lg p-2  w-[90%]"
               >
                 Invest
@@ -132,7 +128,7 @@ const Bucket = ({
         />
       </div>
 
-      {openModal && <Modal title={title} uid={uid} onClose={closeModal} />}
+      {openModal && <Modal bucketData={bucketData} onClose={closeModal} />}
     </div>
   );
 };

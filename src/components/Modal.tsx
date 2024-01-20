@@ -2,7 +2,7 @@ import { SyntheticEvent } from "react";
 import cross from "../assets/plus.svg";
 import { ModalParams } from "../constants/Types";
 
-const Modal = ({ onClose, title, uid }: ModalParams) => {
+const Modal = ({ onClose, bucketData }: ModalParams) => {
   //This for closing the modal on outside click
   const handleChildClick = (e: SyntheticEvent) => {
     e.stopPropagation();
@@ -13,14 +13,17 @@ const Modal = ({ onClose, title, uid }: ModalParams) => {
       onClick={onClose}
       className="absolute top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-75 z-50"
     >
-      <div onClick={handleChildClick} className="relative gradient rounded-lg p-4 px-6 z-50">
+      <div
+        onClick={handleChildClick}
+        className="relative gradient rounded-lg p-4 px-6 z-50"
+      >
         <img
           onClick={onClose}
           className="h-5 absolute right-2 top-2 rotate-45"
           src={cross}
           alt="close"
         />
-        <p className="text-center font-bold text-xl mb-2">{title}</p>
+        <p className="text-center font-bold text-xl mb-2">{bucketData.title}</p>
         <div className="mb-4">
           <p className="ml-2">Amount</p>
           <input
@@ -38,7 +41,10 @@ const Modal = ({ onClose, title, uid }: ModalParams) => {
             <p>days</p>
           </div>
         </div>
-        <button className="p-2 px-4 w-full rounded-lg bg-black text-white shadow-lg mt-8">
+        <button
+          onClick={() => console.log(bucketData)}
+          className="p-2 px-4 w-full rounded-lg bg-black text-white shadow-lg mt-8"
+        >
           Invest
         </button>
       </div>

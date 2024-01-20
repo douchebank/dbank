@@ -2,10 +2,11 @@ import { useState } from "react";
 import dummyImage from "../../assets/recent.png";
 import AssetCard from "./AssetCard";
 import AddAssets from "./AddAssets";
-import { AssetType, BUCKET_TYPE, BucketType } from "../../constants/Types";
+import { AssetType, BUCKET_TYPE, BucketType, CALL_TYPE } from "../../constants/Types";
 
 type RightTabParams = {
   bucketData: BucketType; // this could be the bucket object , uid , name / if we get the uid then we can fetch it form the contract.
+  callType: CALL_TYPE;
 };
 
 const RightTab = ({ bucketData }: RightTabParams) => {
