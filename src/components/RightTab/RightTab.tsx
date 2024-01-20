@@ -56,7 +56,10 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
           {isPersonalAndEditable && !isEditing ? (
             <>
               <h1 className="text-3xl my-4 font-semibold tracking-wide text-center flex justify-center gap-1">
-                Assets <span className="font-light text-lg text-center">({bucketData.assets.length}) </span>
+                Assets
+                <span className="font-light text-lg text-center">
+                  ({bucketData.assets.length}){" "}
+                </span>
               </h1>
               <div className="max-h-[250px] overflow-y-scroll w-full overflow-x-hidden scrollbar">
                 {bucketData.assets.map((asset: AssetType) => {
@@ -94,7 +97,7 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
         </div>
 
         {/* Invest Section  */}
-        {!isEditing && (
+        {!isEditing && bucketData.assets.length > 0 ? (
           <div className="w-full ">
             <div className="w-full flex justify-around gap-3 text-2xl px-2 py-2">
               <button
@@ -174,6 +177,25 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
               )}
             </div>
           </div>
+        ) : (
+          <>
+            <div className="pt-10">
+              <p className="text-center text-xl font-bold tracking-wider ">
+                Create you own investment bucket that will take your protfolio
+                to the moon 🚀.
+              </p>
+              <p className="text-lg font-semibold tracking-wide mt-5">
+                Below are the steps to create your own unique bucket.
+              </p>
+              <ul className=" flex  flex-col gap-2 py-3">
+                <li>1. Create select a unique name for your portfolio</li>
+                <li>
+                  2. Add your favourite assets that will take you to the moon
+                </li>
+                <li>3. Create a sip payment to not miss on the lows</li>
+              </ul>
+            </div>
+          </>
         )}
       </div>
     </>
