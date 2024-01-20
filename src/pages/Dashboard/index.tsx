@@ -4,13 +4,13 @@ import MyWallet from "../../components/MyWallet";
 import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
 import plus from "../../assets/plus.svg";
-import { Swiper, SwiperSlide} from "swiper/react";
-import {  Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import { DummyData } from "../../utils/dummyData";
-import {  BucketType, CALL_TYPE } from "../../constants/Types";
+import { BucketType, CALL_TYPE } from "../../constants/Types";
 import { useState } from "react";
 import { NewBucketData } from "../../constants/Defaults";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 import "swiper/css";
 
 const Dashboard = () => {
@@ -81,7 +81,7 @@ const Dashboard = () => {
                     {DummyData.map((bucketsData) => {
                       return (
                         <>
-                          <SwiperSlide >
+                          <SwiperSlide>
                             <Bucket
                               bucketData={bucketsData}
                               dataForRightTab={(_callType, _bucketData) =>
@@ -139,8 +139,17 @@ const Dashboard = () => {
                 })}
                 <SwiperSlide>
                   <div className="h-full min-w-[30%] flex justify-center items-center py-5 px-4 rounded-xl gradient2 shadow-lg">
-                    <img className="h-20 w-20 p-6 rounded-full bg-white bg-opacity-45 shadow-lg" src={plus} alt="add more"/> 
-                    <p className="absolute bottom-[2em] text-center text-lg w-4/5">Create your own personalised investment bucket! 🚀</p>
+                    <img
+                      onClick={() =>
+                        dataForRightTab(CALL_TYPE.CREATE, NewBucketData)
+                      }
+                      className="h-20 w-20 p-6 rounded-full bg-white bg-opacity-45 shadow-lg"
+                      src={plus}
+                      alt="add more"
+                    />
+                    <p className="absolute bottom-[2em] text-center text-lg w-4/5">
+                      Create your own personalised investment bucket! 🚀
+                    </p>
                   </div>
                 </SwiperSlide>
               </Swiper>
