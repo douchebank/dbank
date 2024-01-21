@@ -1,3 +1,5 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { SyntheticEvent } from "react";
 import cross from "../assets/plus.svg";
 import { ModalParams } from "../constants/Types";
@@ -8,6 +10,14 @@ const Modal = ({ onClose, bucketData }: ModalParams) => {
     e.stopPropagation();
   };
 
+  const handleInvest = () => {
+    toast.success("Invested Successfully !", {
+      icon: "🚀", // Custom icon
+      duration: 3000, // Duration in milliseconds
+    });
+   onClose()
+  }
+
   return (
     <div
       onClick={onClose}
@@ -16,7 +26,7 @@ const Modal = ({ onClose, bucketData }: ModalParams) => {
     >
       <div
         onClick={handleChildClick}
-        className="relative bg border-2 border-white rounded-lg p-4 px-6"
+        className="relative bg-white border-2 border-white rounded-lg p-4 px-6"
       >
         <img
           onClick={onClose}
@@ -43,7 +53,7 @@ const Modal = ({ onClose, bucketData }: ModalParams) => {
           </div>
         </div>
         <button
-          onClick={() => console.log(bucketData)}
+          onClick={() => handleInvest()}
           className="p-2 px-4 w-full rounded-lg bg-black text-white shadow-lg mt-8"
         >
           Invest
