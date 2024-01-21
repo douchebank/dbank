@@ -72,7 +72,7 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
 
   return (
     <div className={`relative  ${location.pathname === "/sip" && "w-[24%]"}`}>
-      <div className="h-fit min-w-[30%]  py-5 px-4 rounded-xl gradient2 shadow-lg  overflow-hidden">
+      <div className="h-fit min-w-[30%]  py-5 px-4 rounded-xl glass border-2 border-white shadow-lg  overflow-hidden">
         <div className="flex gap-4">
           <img
             className="h-28 w-28 my-2 rounded-xl aspect-square object-cover"
@@ -213,7 +213,7 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
             </>
           )}
           <img
-            className="h-7 w-[10%] "
+            className="h-7 w-[10%]  "
             onClick={bookmark ? removeBookmark :  doBookmark}
             src={bookmark ? selectedBookmark : bookmarkImg}
             alt="bookmark"

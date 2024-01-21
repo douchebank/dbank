@@ -10,12 +10,12 @@ const SIP = () => {
 
   return (
     <>
-      <div className="flex  w-full min-h-screen  ">
+      <div className="flex  w-full min-h-screen bg ">
         <div className="w-[10%]">
           <LeftSidebar />
         </div>
         <div className=" w-[90%] h-fit  p-6 ">
-          <div className="w-3/5 gap-2 flex justify-center items-center mx-auto gradient2 mb-6 border-2 shadow-lg border-black rounded-xl">
+          <div className="w-3/5 gap-2 flex justify-center items-center mx-auto glass mb-6 border-2 shadow-lg border-white rounded-xl">
             <input
               type="text"
               className="p-2 px-4 w-full bg-transparent rounded-s-xl focus:outline-none "
@@ -23,7 +23,7 @@ const SIP = () => {
             />
             <img
               onClick={handleSearch}
-              className="h-8 p-1 px-2 border-l-2 hover:scale-110 border-black"
+              className="h-8 p-1 px-2 border-l-2 hover:scale-110 border-white"
               src={search}
               alt="search"
             />

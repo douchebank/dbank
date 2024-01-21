@@ -9,7 +9,7 @@ type MyWalletParams = {
 
 const MyWallet = ({ dataForRightTab }: MyWalletParams) => {
   return (
-    <div className="glass wallet-bg border-2 border-white w-fit h-fit rounded-3xl px-10 py-16 text-white text-center shadow-lg mx-auto">
+    <div className="glass wallet-bg border-2 border-white w-fit h-fit rounded-3xl px-10 py-16 text-center shadow-lg mx-auto">
       <p className="">My Wallet</p>
       <p className="text-6xl font-bold px-6 mt-4">$128,921</p>
       <p className="text-xs mt-2">+ $12,921 from last week</p>

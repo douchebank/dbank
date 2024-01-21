@@ -54,11 +54,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .txt-shadow{
-  text-shadow: 2px 4px 2px rgba(0,0,0,0.6);
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
 }
 
 .glass{
-  background: rgba(255, 255, 255, 0);
+  background: rgba(229, 222, 222, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -84,8 +84,9 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 0.4em;
   height: 2em!important;
   width: 2em!important;
-  background: rgb(232,250,227);
-    background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
+  background: rgba(229, 222, 222, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
     border-radius: 100%;
     box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
 }
