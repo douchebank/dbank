@@ -1,15 +1,17 @@
 import plus from "../assets/plus.svg";
 import receive from "../assets/receive.svg";
 import send from "../assets/send.svg";
+import { useConfig } from "../context/ConfigProvider";
 
 const MyWallet = () => {
-  return (
-    <div className="glass wallet-bg border-2 border-white w-fit h-fit rounded-3xl px-10 py-16 text-white text-center shadow-lg mx-auto">
-      <p className="">My Wallet</p>
-      <p className="text-6xl font-bold px-6 mt-4">$128,921</p>
-      <p className="text-xs mt-2">+ $12,921 from last week</p>
-      <div className="mt-8 flex gap-6 items-center justify-center">
+  const { SCWBalance } = useConfig();
 
+  return (
+    <div className="glass wallet-bg border-2 border-white w-[50%] h-fit rounded-3xl px-10 py-16 text-white text-center shadow-lg mx-auto">
+      <p className="">My Wallet</p>
+      <p className="text-6xl font-bold px-6 mt-4">${SCWBalance ? SCWBalance : 0}</p>
+      <p className="text-xs mt-2">+ $00000 from last week</p>
+      <div className="mt-8 flex gap-6 items-center justify-center">
         <div className="flex justify-center items-center gap-8 p-2 h-16  w-fit bg-black rounded-full ">
           <img
             src={send}
