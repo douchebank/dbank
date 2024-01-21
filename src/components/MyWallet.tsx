@@ -1,9 +1,14 @@
 import plus from "../assets/plus.svg";
 import receive from "../assets/receive.svg";
 import send from "../assets/send.svg";
+import { CALL_TYPE } from "../constants/Types";
+
+type MyWalletParams = {
+  dataForRightTab: (_callType: CALL_TYPE) => void;
+};
 import { useConfig } from "../context/ConfigProvider";
 
-const MyWallet = () => {
+const MyWallet = ({ dataForRightTab }: MyWalletParams) => {
   const { SCWBalance } = useConfig();
 
   return (
@@ -26,6 +31,7 @@ const MyWallet = () => {
         </div>
 
         <img
+          onClick={() => dataForRightTab(CALL_TYPE.CREATE)}
           src={plus}
           className="h-16 p-6 bg-yellow rounded-full"
           alt="plus"

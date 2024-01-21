@@ -3,12 +3,25 @@ import LeftSidebar from "../../components/LeftSidebar";
 import MyWallet from "../../components/MyWallet";
 import RightTab from "../../components/RightTab/RightTab";
 import WatchList from "../../components/WatchList";
-import { BUCKET_TYPE } from "../../constants/Types";
+import plus from "../../assets/plus.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { DummyData } from "../../utils/dummyData";
+import { BucketType, CALL_TYPE } from "../../constants/Types";
+import { useState } from "react";
+import { NewBucketData } from "../../constants/Defaults";
+import "swiper/css/navigation";
 import "swiper/css";
 
 const Dashboard = () => {
   const isInvested = true;
+  const [callType, setCallType] = useState<CALL_TYPE>(CALL_TYPE.CREATE);
+  const [bucketData, setBucketData] = useState<BucketType>(NewBucketData);
+
+  const dataForRightTab = (_callType: CALL_TYPE, _bucketData: BucketType) => {
+    setCallType(_callType);
+    setBucketData(_bucketData);
+  };
 
   return (
     <div className="flex w-full  h-full max-h-screen bg">
@@ -17,10 +30,14 @@ const Dashboard = () => {
       </div>
 
       {/* Middle Part  */}
-      <div className="w-[65%]  flex flex-col p-8 gap-5">
+      <div className="w-[65%]  flex flex-col p-8 pb-1 gap-5">
         {/* upperSection  */}
         <div className=" h-[42%]  flex  justify-between  ">
-          <MyWallet />
+          <MyWallet
+            dataForRightTab={(_callType) =>
+              dataForRightTab(_callType, NewBucketData)
+            }
+          />
 
           <div className="w-3/5 px-6">
             <div className="relative h-full w-fit overflow-y-scroll  mx-auto scrollbar">
@@ -29,42 +46,18 @@ const Dashboard = () => {
               </p>
               <div className="pr-2 flex flex-col gap-4">
                 {/* Map over it instead of copy pasting  */}
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
-                <WatchList
-                  uid="1"
-                  title="Big Cap"
-                  price={100}
-                  tvl={1000}
-                  logo=""
-                  type={BUCKET_TYPE.GENERAL}
-                  invested={false}
-                />
+                {DummyData.map((bucketsData) => {
+                  return (
+                    <>
+                      <WatchList
+                        bucketData={bucketsData}
+                        dataForRightTab={(_callType, _bucketData) =>
+                          dataForRightTab(_callType, _bucketData)
+                        }
+                      />
+                    </>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -75,76 +68,32 @@ const Dashboard = () => {
           <div>
             {isInvested === true && (
               <>
-                <h1 className=" txt-shadow font-bold text-white tracking-wide text-2xl">
+                <h1 className=" txt-shadow font-bold tracking-wide text-2xl mb-4">
                   Invested Accounts
                 </h1>
-                <div className="flex py-4 h-full overflow-hidden">
+                <div className="flex overflow-hidden">
                   <Swiper
                     spaceBetween={20}
                     slidesPerView={3}
                     onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
+                    navigation={true}
+                    modules={[Navigation]}
                   >
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap dfadf dfasdfaasdfadf  sdfasd"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={false}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Bucket
-                        uid="1"
-                        title="Big Cap"
-                        price={100}
-                        tvl={1000}
-                        logo=""
-                        type={BUCKET_TYPE.GENERAL}
-                        invested={true}
-                        assets={[]}
-                      />
-                    </SwiperSlide>
+                    {DummyData.map((bucketsData) => {
+                      return (
+                        <>
+                          <SwiperSlide>
+                            <Bucket
+                              bucketData={bucketsData}
+                              dataForRightTab={(_callType, _bucketData) =>
+                                dataForRightTab(_callType, _bucketData)
+                              }
+                            />
+                          </SwiperSlide>
+                        </>
+                      );
+                    })}
                   </Swiper>
                 </div>
               </>
@@ -155,70 +104,55 @@ const Dashboard = () => {
             <h1 className="font-bold tracking-wide text-white text-2xl txt-shadow">All Buckets</h1>
             <div className="flex gap-5 py-4 overflow-hidden">
               <Swiper
-                spaceBetween={50}
+                spaceBetween={20}
                 slidesPerView={3}
                 onSlideChange={() => console.log("slide change")}
                 onSwiper={(swiper) => console.log(swiper)}
+                navigation={true}
+                modules={[Navigation]}
               >
+                {DummyData.map((bucketsData) => {
+                  return (
+                    <>
+                      <SwiperSlide>
+                        <Bucket
+                          bucketData={bucketsData}
+                          dataForRightTab={(_callType, _bucketData) =>
+                            dataForRightTab(_callType, _bucketData)
+                          }
+                        />
+                      </SwiperSlide>
+                    </>
+                  );
+                })}
+                {DummyData.map((bucketsData) => {
+                  return (
+                    <>
+                      <SwiperSlide>
+                        <Bucket
+                          bucketData={bucketsData}
+                          dataForRightTab={(_callType, _bucketData) =>
+                            dataForRightTab(_callType, _bucketData)
+                          }
+                        />
+                      </SwiperSlide>
+                    </>
+                  );
+                })}
                 <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Bucket
-                    uid="1"
-                    title="Big Cap"
-                    price={100}
-                    tvl={1000}
-                    logo=""
-                    type={BUCKET_TYPE.GENERAL}
-                    invested={false}
-                    assets={[]}
-                  />
+                  <div className="h-full min-w-[30%] flex justify-center items-center py-5 px-4 rounded-xl gradient2 shadow-lg">
+                    <img
+                      onClick={() =>
+                        dataForRightTab(CALL_TYPE.CREATE, NewBucketData)
+                      }
+                      className="h-20 w-20 p-6 rounded-full bg-white bg-opacity-45 shadow-lg"
+                      src={plus}
+                      alt="add more"
+                    />
+                    <p className="absolute bottom-[2em] text-center text-lg w-4/5">
+                      Create your own personalised investment bucket! 🚀
+                    </p>
+                  </div>
                 </SwiperSlide>
               </Swiper>
             </div>
@@ -227,7 +161,7 @@ const Dashboard = () => {
       </div>
       {/* Right Tab  */}
       <div className="w-[25%] glass border-l-2 border-white">
-        <RightTab />
+        <RightTab callType={callType} bucketData={bucketData} />
       </div>
     </div>
   );
