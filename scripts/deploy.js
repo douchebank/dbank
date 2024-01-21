@@ -4,16 +4,15 @@
 // You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
-import { ethers } from "ethers";
 const hre = require("hardhat");
 
 async function main() {
-  const GHOAddress = ''; 
-  const v2Factory = '';
-  const v3Factory = ''; 
-  const permit2 = '';
+  const swapRouterAddress = '0xE592427A0AEce92De3Edee1F18E0157C05861564';
+  const GHOAddress = '0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f'; 
 
-  const dbank = await hre.ethers.deployContract("DBank", [GHOAddress, v2Factory, v3Factory, permit2]);
+  const provider = new hre.ethers.JsonRpcProvider("http://127.0.0.1:8545");
+  const signer = provider.getSigner();
+  const dbank = await hre.ethers.deployContract("DBank", [swapRouterAddress, GHOAddress], signer);
 
   await dbank.waitForDeployment();
 

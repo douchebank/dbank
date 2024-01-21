@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.20;
 
 import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
-import { UniversalRouter } from "@uniswap/universal-router/contracts/UniversalRouter.sol";
-import { Constants } from "@uniswap/universal-router/contracts/libraries/Constants.sol";
-import { RouterParameters } from "@uniswap/universal-router/contracts/base/RouterImmutables.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
@@ -16,42 +13,15 @@ error NO_INVESTED_AMOUNT();
 contract DBank {
 
     // constants
-    address private immutable _admin;
-    address private immutable _GHOAddress;
-    // ISwapRouter private immutable _swapRouter;
+    address public _admin;
+    address public _GHOAddress;
+    ISwapRouter public _swapRouter;
     uint24 private constant poolFee = 100;
-    UniversalRouter router;
 
-    constructor(address GHOAddress, address v2Factory, address v3Factory, address permit2) {
-        // _swapRouter = ISwapRouter(swapRouter);
+    constructor(address swapRouter, address GHOAddress) {
+        _swapRouter = ISwapRouter(swapRouter);
         _GHOAddress = GHOAddress;
         _admin = msg.sender;
-
-        // Initializing Universal Router
-        RouterParameters memory params = RouterParameters({
-            permit2: permit2,
-            weth9: address(0),
-            seaportV1_5: address(0),
-            seaportV1_4: address(0),
-            openseaConduit: address(0),
-            nftxZap: address(0),
-            x2y2: address(0),
-            foundation: address(0),
-            sudoswap: address(0),
-            elementMarket: address(0),
-            nft20Zap: address(0),
-            cryptopunks: address(0),
-            looksRareV2: address(0),
-            routerRewardsDistributor: address(0),
-            looksRareRewardsDistributor: address(0),
-            looksRareToken: address(0),
-            v2Factory: v2Factory,
-            v3Factory: v3Factory,
-            pairInitCodeHash: bytes32(0),
-            poolInitCodeHash: bytes32(0)
-        });
-
-        router = new UniversalRouter(params);
     }
 
     // struct to store a investment plan details
@@ -124,47 +94,40 @@ contract DBank {
         return planDetails[_planId];
     }
 
-    // TODO - Internal function to swap GHO to token
+    // Internal function to swap GHO to token
     function _swapGHOToToken(uint256 _amountIn, address _tokenOut) internal returns (uint256 amountOut) {
-        // ISwapRouter.ExactInputSingleParams memory params =
-        //     ISwapRouter.ExactInputSingleParams({
-        //         tokenIn: _GHOAddress,
-        //         tokenOut: _tokenOut,
-        //         fee: poolFee,
-        //         recipient: address(this),
-        //         deadline: block.timestamp,
-        //         amountIn: _amountIn,
-        //         amountOutMinimum: 0,
-        //         sqrtPriceLimitX96: 0
-        //     });
+        ISwapRouter.ExactInputSingleParams memory params =
+            ISwapRouter.ExactInputSingleParams({
+                tokenIn: _GHOAddress,
+                tokenOut: _tokenOut,
+                fee: poolFee,
+                recipient: address(this),
+                deadline: block.timestamp,
+                amountIn: _amountIn,
+                amountOutMinimum: 0,
+                sqrtPriceLimitX96: 0
+            });
 
-        // amountOut = _swapRouter.exactInputSingle(params);
-
-        bytes memory commands = abi.encodePacked(bytes1(uint8(Commands.V3_SWAP_EXACT_IN)));
-        bytes[] memory inputs = new bytes[](1);
-        inputs[0] = abi.encode(address(this), _amountIn, 0, abi.encodePacked(bytes1([GHOAddress, _tokenOut])), true);
-
-        router.execute(commands, inputs);
+        amountOut = _swapRouter.exactInputSingle(params);
     }
 
-    // TODO - Internal function to swap token to GHO
+    // Internal function to swap token to GHO
     function _swapTokenToGHO(uint256 _amountIn, address _tokenIn) internal returns (uint256 amountOut) {
-        // TransferHelper.safeApprove(_tokenIn, address(_swapRouter), _amountIn);
+        TransferHelper.safeApprove(_tokenIn, address(_swapRouter), _amountIn);
 
-        // ISwapRouter.ExactInputSingleParams memory params =
-        //     ISwapRouter.ExactInputSingleParams({
-        //         tokenIn: _tokenIn,
-        //         tokenOut: _GHOAddress,
-        //         fee: poolFee,
-        //         recipient: msg.sender,
-        //         deadline: block.timestamp,
-        //         amountIn: _amountIn,
-        //         amountOutMinimum: 0,
-        //         sqrtPriceLimitX96: 0
-        //     });
+        ISwapRouter.ExactInputSingleParams memory params =
+            ISwapRouter.ExactInputSingleParams({
+                tokenIn: _tokenIn,
+                tokenOut: _GHOAddress,
+                fee: poolFee,
+                recipient: msg.sender,
+                deadline: block.timestamp,
+                amountIn: _amountIn,
+                amountOutMinimum: 0,
+                sqrtPriceLimitX96: 0
+            });
 
-        // amountOut = _swapRouter.exactInputSingle(params);
-        amountOut = 100000000000;
+        amountOut = _swapRouter.exactInputSingle(params);
     }
 
     // function ghoFraction
@@ -174,10 +137,10 @@ contract DBank {
 
     // Invest function
     function invest(uint256 _planId, uint256 _investValue, uint256 _deadline, uint8 v, bytes32 r, bytes32 s) external returns (bool) {
-        // IERC20Permit(_GHOAddress).permit(msg.sender, address(this), _investValue, _deadline, v, r, s);
+        IERC20Permit(_GHOAddress).permit(msg.sender, address(this), _investValue, _deadline, v, r, s);
 
-        // TransferHelper.safeTransferFrom(_GHOAddress, msg.sender, address(this), _investValue);
-        // TransferHelper.safeApprove(_GHOAddress, address(_swapRouter), _investValue);
+        TransferHelper.safeTransferFrom(_GHOAddress, msg.sender, address(this), _investValue);
+        TransferHelper.safeApprove(_GHOAddress, address(_swapRouter), _investValue);
 
         InvestmentPlans memory plan = planDetails[_planId];
         address[] memory tokens = plan.tokens;

@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-chain": "hardhat node --fork https://mainnet.infura.io/v3/cb2d379f86e54f5f923eae4b837290ef --fork-block-number 14390000"
+    "start-chain": "hardhat node --fork https://mainnet.infura.io/v3/cb2d379f86e54f5f923eae4b837290ef --fork-block-number 14390000",
+    "deploy-contract": "npx hardhat run scripts/deploy.js"
   },
   "eslintConfig": {
     "extends": [
