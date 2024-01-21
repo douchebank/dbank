@@ -1,8 +1,11 @@
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
+import profile from "../assets/profile.svg"
+import logoutimg from "../assets/logout.svg"
 import homeWhite from "../assets/homeWhite.svg";
 import sipWhite from "../assets/sipWhite.svg";
+import profileWhite from "../assets/profile-white.svg";
 
 import sip from "../assets/sip.svg";
 import { Link, useLocation } from "react-router-dom";
@@ -72,17 +75,22 @@ const LeftSidebar = () => {
             currentPath === "/account"
               ? "text-white shadow-lg shadow-lime-200 bg-black"
               : ""
-          } flex items-center rounded-lg p-2 px-4`}
+          } flex items-center rounded-lg p-2 px-3 gap-2`}
         >
-          {/* <img
-            src={currentPath === "/account" ? sipWhite : sip}
-            className="h-12 p-3"
+          <img
+            src={currentPath === "/account" ? profileWhite : profile}
+            className="h-8"
             alt="Account"
-          /> */}
+          />
           <p className="text-xl font-semibold tracking-wide ">Account</p>
         </Link>
       </div>
-      <div className={`flex items-center absolute bottom-2 left-1/2 translate-x-[-50%] w-fit rounded-lg p-2 px-4 cursor-pointer`}>
+      <div className={`flex justify-center items-center absolute bottom-2 left-1/2 translate-x-[-50%] w-fit rounded-lg p-2 px-4 cursor-pointer`}>
+      <img
+            src={logoutimg}
+            className="h-10 p-1"
+            alt="logout"
+          />
         <p
           className="text-xl font-semibold tracking-wide whitespace-nowrap"
           onClick={openLogOutModal}

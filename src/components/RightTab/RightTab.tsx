@@ -18,34 +18,92 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
   const [selectedAction, setSelectedAction] = useState<string>("Buy");
   const [sipSelected, setSipSelected] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [titleInput, setTitleInput] = useState(bucketData.title);
+  const [priceInput, setPriceInput] = useState("");
+  const [tvlInput, setTvlInput] = useState("");
   const isPersonalAndEditable = true; // get it form the props when passed in (this the enum value) used to make the
 
   const closeEditingMode = () => {
     setIsEditing(false);
   };
 
+  // const handleTitleInput = (value) => {
+  //   setTitleInput(value);
+  // };
+
+  // const handlePriceInput = (value) => {
+  //   setPriceInput(value);
+  // };
+
+  // const handleTvlInput = (value) => {
+  //   setTvlInput(value);
+  // };
+
   return (
     <>
       <div className="flex flex-col gap-2 px-5 h-full  w-full divide-y divide-black divide-opacity-75">
         {/* Bucket information  */}
-        <div className=" flex mx-auto gap-5 my-5">
-          <img
-            src={callType === CALL_TYPE.CREATE ? dummyImage : bucketData.logo}
-            alt="Bucketimage"
-            className=" w-32 h-32 rounded-xl aspect-square object-cover "
-          />
-          <div>
-            <p className="text-3xl font-semibold">{bucketData.title}</p>
-            <div className=" flex flex-col gap-3 my-3 text-lg font-medium ">
-              <p>
-                Price:- <span>{bucketData.price} GHO</span>
-              </p>
-              <p>
-                TVL:- <span>$ {bucketData.tvl}</span>
-              </p>
+
+        {callType === CALL_TYPE.CREATE ? (
+          <>
+            <div className="flex mx-auto gap-5 my-5">
+              <img
+                src={dummyImage}
+                alt="Bucketimage"
+                className="w-32 h-32 rounded-xl aspect-square object-cover"
+              />
+              <div>
+                <input
+                  type="text"
+                  value={titleInput}
+                  className="text-3xl font-semibold max-w-[240px] border-2 border-black p-2 rounded-xl"
+                  onChange={(e) => setTitleInput(e.target.value)}
+                />
+                <div className="flex flex-col gap-3 my-3 text-lg font-medium">
+                  <p className="flex items-center">
+                    Price:
+                    <input
+                      type="text"
+                      value={priceInput}
+                      placeholder="Min 10 GHO"
+                      className="border-2 border-black p-1 rounded-lg w-full mx-2"
+                      onChange={(e) => setPriceInput(e.target.value)}
+                    />
+                    GHO
+                  </p>
+                  <p className="flex items-center whitespace-nowrap">
+                    TVL: $
+                    <input
+                      type="text"
+                      value={tvlInput}
+                      className="border-2 border-black p-1 rounded-lg w-full mx-2"
+                      onChange={(e) => setTvlInput(e.target.value)}
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className=" flex mx-auto gap-5 my-5">
+            <img
+              src={bucketData.logo}
+              alt="Bucketimage"
+              className=" w-32 h-32 rounded-xl aspect-square object-cover "
+            />
+            <div>
+              <p className="text-3xl font-semibold">{bucketData.title}</p>
+              <div className=" flex flex-col gap-3 my-3 text-lg font-medium ">
+                <p>
+                  Price:- <span>{bucketData.price} GHO</span>
+                </p>
+                <p>
+                  TVL:- <span>$ {bucketData.tvl}</span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Assets Section  */}
         <div

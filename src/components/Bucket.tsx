@@ -7,6 +7,7 @@ import { BucketType, CALL_TYPE } from "../constants/Types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Modal from "./Modal";
+import localforage from "localforage";
 
 type BucketParams = {
   bucketData: BucketType;
@@ -17,9 +18,32 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
   const [bookmark, setBookmark] = useState(false);
   const [openModal, setModalOpen] = useState(false);
   const [showExtraCoins, setShowExtraCoins] = useState(false);
-  const toggleBookmark = () => {
-    setBookmark(!bookmark);
+
+  const doBookmark = async () => {
+    setBookmark(true);
+    const existingData: BucketType[] = await localforage.getItem("bookmarkArray") || [];
+    const newData = [...existingData, bucketData];
+    localforage.setItem("bookmarkArray", newData);
   };
+
+  const checkIfBookmarked = async () => {
+    const existingData: BucketType[] = await localforage.getItem("bookmarkArray") || [];
+    const isBookmarked = existingData.some(item => item.uid === bucketData.uid);
+    setBookmark(isBookmarked);
+  };
+
+  const removeBookmark = async () => {
+    setBookmark(false);
+    const existingData: BucketType[] = await localforage.getItem("bookmarkArray") || [];
+    const indexToRemove  = existingData.findIndex(item => item.uid === bucketData.uid);
+    if (indexToRemove !== -1) {
+      existingData.splice(indexToRemove, 1);
+      localforage.setItem("bookmarkArray", existingData);
+    }
+  };
+
+  checkIfBookmarked()
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -190,7 +214,7 @@ const Bucket = ({ dataForRightTab, bucketData }: BucketParams) => {
           )}
           <img
             className="h-7 w-[10%] "
-            onClick={toggleBookmark}
+            onClick={bookmark ? removeBookmark :  doBookmark}
             src={bookmark ? selectedBookmark : bookmarkImg}
             alt="bookmark"
           />
