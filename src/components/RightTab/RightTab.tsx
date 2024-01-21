@@ -72,15 +72,6 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
                     />
                     GHO
                   </p>
-                  <p className="flex items-center whitespace-nowrap">
-                    TVL: $
-                    <input
-                      type="text"
-                      value={tvlInput}
-                      className="border-2 border-black p-1 rounded-lg w-full mx-2"
-                      onChange={(e) => setTvlInput(e.target.value)}
-                    />
-                  </p>
                 </div>
               </div>
             </div>
