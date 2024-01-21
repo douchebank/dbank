@@ -9,6 +9,7 @@ import {
   BucketType,
   CALL_TYPE,
 } from "../../constants/Types";
+import toast from "react-hot-toast";
 
 type RightTabParams = {
   bucketData: BucketType; // this could be the bucket object , uid , name / if we get the uid then we can fetch it form the contract.
@@ -22,11 +23,21 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
   const [titleInput, setTitleInput] = useState(bucketData.title);
   const [priceInput, setPriceInput] = useState("");
   const [tvlInput, setTvlInput] = useState("");
+  const [investAmount, setInvestAmount] = useState("");
   const isPersonalAndEditable = true; // get it form the props when passed in (this the enum value) used to make the
 
   const closeEditingMode = () => {
     setIsEditing(false);
   };
+
+  const handleInvest = () => {
+    console.log("workign")
+    toast.success("Invested Successfully !", {
+      icon: "🚀", // Custom icon
+      duration: 3000, // Duration in milliseconds
+    });
+    setInvestAmount("");
+  }
 
   // const handleTitleInput = (value) => {
   //   setTitleInput(value);
@@ -206,11 +217,12 @@ const RightTab = ({ callType, bucketData }: RightTabParams) => {
                         <label className="">Amount:</label>
                         <input
                           type="number"
+                          value={investAmount} onChange={(e: any)=>setInvestAmount(e.target.value)}
                           className="p-2 px-4 tracking-widest focus:outline-none  rounded-xl w-full "
                         />
                       </div>
                     </div>
-                    <button className=" w-full border border-black bg-white rounded-xl px-4 py-2 text-2xl">
+                    <button onClick={()=>handleInvest()}  className=" w-full border border-black bg-white rounded-xl px-4 py-2 text-2xl">
                       Invest
                     </button>
                   </div>
