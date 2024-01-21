@@ -41,7 +41,7 @@ const Dashboard = () => {
 
           <div className="w-3/5 px-6">
             <div className="relative h-full w-fit overflow-y-scroll  mx-auto scrollbar">
-              <p className="sticky top-0 bg-transparent text-white w-full font-bold tracking-wide text-xl pb-2">
+              <p className="sticky top-0 bg-transparen w-full font-bold tracking-wide text-xl pb-2">
                 WatchList
               </p>
               <div className="pr-2 flex flex-col gap-4">
@@ -68,7 +68,7 @@ const Dashboard = () => {
           <div>
             {isInvested === true && (
               <>
-                <h1 className=" txt-shadow font-bold tracking-wide text-2xl mb-4">
+                <h1 className="font-bold tracking-wide text-2xl mb-4">
                   Invested Accounts
                 </h1>
                 <div className="flex overflow-hidden">
@@ -101,7 +101,7 @@ const Dashboard = () => {
           </div>
 
           <div>
-            <h1 className="font-bold tracking-wide text-white text-2xl txt-shadow">All Buckets</h1>
+            <h1 className="font-bold tracking-wide text-2xl">All Buckets</h1>
             <div className="flex gap-5 py-4 overflow-hidden">
               <Swiper
                 spaceBetween={20}
@@ -140,7 +140,7 @@ const Dashboard = () => {
                   );
                 })}
                 <SwiperSlide>
-                  <div className="h-full min-w-[30%] flex justify-center items-center py-5 px-4 rounded-xl gradient2 shadow-lg">
+                  <div className="h-full min-w-[30%] flex justify-center items-center py-5 px-4 rounded-xl glass shadow-lg">
                     <img
                       onClick={() =>
                         dataForRightTab(CALL_TYPE.CREATE, NewBucketData)

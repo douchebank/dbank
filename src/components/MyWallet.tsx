@@ -12,7 +12,7 @@ const MyWallet = ({ dataForRightTab }: MyWalletParams) => {
   const { SCWBalance } = useConfig();
 
   return (
-    <div className="glass wallet-bg border-2 border-white w-[50%] h-fit rounded-3xl px-10 py-16 text-white text-center shadow-lg mx-auto">
+    <div className="glass wallet-bg border-2 border-white w-[50%] h-fit rounded-3xl px-10 py-16 text-center shadow-lg mx-auto">
       <p className="">My Wallet</p>
       <p className="text-6xl font-bold px-6 mt-4">
         ${SCWBalance ? SCWBalance : 0}

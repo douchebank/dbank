@@ -8,8 +8,8 @@ type WatchListParams = {
 
 const WatchList = ({ bucketData, dataForRightTab }: WatchListParams) => {
   return (
-    <div className=" w-fit">
-      <div className="flex  gap-4 p-4  gradient2 w-fit rounded-xl shadow-lg">
+    <div className=" w-fit ">
+      <div className="flex  gap-4 p-4 glass w-fit rounded-xl shadow-lg border-2 border-white">
         <img
           src={bucketData.logo ? bucketData.logo : dumyImg}
           alt="largeCap"

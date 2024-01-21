@@ -43,10 +43,10 @@ const LeftSidebar = () => {
           to="/dashboard"
           className={`${
             currentPath === "/dashboard" ? " shadow-xl  shadow-white glass border-r-2" : ""
-          } flex items-center rounded-lg p-2 px-4 text-white border-white `}
+          } flex items-center rounded-lg p-2 px-4  border-white `}
         >
           <img
-            src={homeWhite}
+            src={home}
             className="h-12"
             alt="Home"
           />
@@ -56,10 +56,10 @@ const LeftSidebar = () => {
           to="/sip"
           className={`${
             currentPath === "/sip" ? " shadow-xl shadow-white glass border-r-2" : ""
-          } flex items-center text-white rounded-lg p-2 px-4  border-white`}
+          } flex items-center  rounded-lg p-2 px-4  border-white`}
         >
           <img
-            src={sipWhite}
+            src={sip}
             className="h-12 p-3"
             alt="Sip"
           />
@@ -68,13 +68,11 @@ const LeftSidebar = () => {
         <Link
           to="/account"
           className={`${
-            currentPath === "/account"
-              ? "text-white shadow-lg shadow-lime-200 bg-black"
-              : ""
-          } flex items-center rounded-lg p-2 px-3 gap-2`}
+            currentPath === "/account" ? " shadow-xl shadow-white glass border-r-2" : ""
+          } flex items-center  rounded-lg p-2 px-4  border-white`}
         >
           <img
-            src={currentPath === "/account" ? profileWhite : profile}
+            src={profile}
             className="h-8"
             alt="Account"
           />
@@ -88,7 +86,7 @@ const LeftSidebar = () => {
             alt="logout"
           />
         <p
-          className="text-xl font-semibold tracking-wide whitespace-nowrap"
+          className="text-xl  font-semibold tracking-wide whitespace-nowrap"
           onClick={openLogOutModal}
         >
           Log Out
