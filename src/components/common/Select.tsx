@@ -33,7 +33,7 @@ const Select: FC<SelectProps> = ({ options, onChange, ...rest }) => {
       <select
         onChange={handleSelectChange}
         value={selectedValue}
-        className={`block cursor-pointer text-center min-h-[40px] placeholder:text-xl text-xl appearance-none w-full gradient2 border border-gray-300 hover:border-gray-500 
+        className={`block cursor-pointer text-center min-h-[40px] placeholder:text-xl text-xl appearance-none w-full  border border-gray-300 hover:border-gray-500 
         px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline overflow-hidden max-w-[300px] ${rest.className}`}
       >
         <option value="" disabled>

@@ -14,11 +14,11 @@ const Modal = ({
   actionBtnName,
 }: removeModal) => (
   <div
-    className={`fixed inset-0 flex items-center justify-center z-50  ${
+    className={`absolute w-screen h-screen inset-0 flex items-center justify-center z-50  ${
       isOpen ? "" : "hidden"
     }`}
   >
-    <div className="gradient min-w-[400px] mx-auto rounded-lg shadow-lg z-50 border-2 border-white border-opacity-80  px-3 py-2">
+    <div className="gradient min-w-[400px] mx-auto rounded-lg shadow-lg z-90 border-2 border-white border-opacity-80  px-3 py-2">
       <div className="text-center py-4 px-2 ">
         <p className="text-lg font-semibold">{message}</p>
         <div className=" flex gap-5 justify-center item-center mt-5 ">

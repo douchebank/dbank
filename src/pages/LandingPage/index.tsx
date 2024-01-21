@@ -17,8 +17,8 @@ const LandingPage = () => {
     setShowRegisterModal(!showRegisterModal);
   }
   return (
-  <div className="h-screen w-screen flex justify-center items-center gradient2">
-    <button onClick={toggleShowRegisterModal} className=" p-6 px-20 font-bold  text-lg shadow-lg rounded-lg gradient">Launch</button>
+  <div className="h-screen w-screen flex justify-center items-center bg">
+    <button onClick={toggleShowRegisterModal} className=" p-6 px-20 font-bold  text-lg shadow-lg rounded-lg glass border-4 border-white">Launch</button>
 
     {
       showRegisterModal &&

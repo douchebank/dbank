@@ -84,14 +84,14 @@ const Login = ({ onClose }: LoginParams) => {
     }
   }
   return (
-    <div className="w-[20em] h-[18em] absolute text-center gradient shadow-lg rounded-xl p-4 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
+    <div className="w-[20em] h-[18em] absolute text-center glass border-2 border-white shadow-lg rounded-xl p-4 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
       <p className="text-center font-bold text-xl">Select Account</p>
 
       <div className="flex flex-col my-12 gap-4">
         <Select
           label="Select name"
           options={allDevices || []}
-          className="w-full p-2 rounded-lg border border-grey"
+          className="w-full p-2 rounded-lg border border-grey bg-white"
           onChange={handleInputChange}
         />
         <button

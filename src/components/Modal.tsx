@@ -11,11 +11,12 @@ const Modal = ({ onClose, bucketData }: ModalParams) => {
   return (
     <div
       onClick={onClose}
-      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-75 z-50"
+      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-black bg-opacity-75 z-10"
+
     >
       <div
         onClick={handleChildClick}
-        className="relative gradient rounded-lg p-4 px-6 z-50"
+        className="relative gradient rounded-lg p-4 px-6"
       >
         <img
           onClick={onClose}

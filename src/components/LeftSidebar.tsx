@@ -87,18 +87,18 @@ const LeftSidebar = () => {
           />
         <p
           className="text-xl  font-semibold tracking-wide whitespace-nowrap"
-          onClick={openLogOutModal}
+          onClick={logOut}
         >
           Log Out
         </p>
       </div>
-      <Modal
+      {/* <Modal
         isOpen={isLogOutModalOpen}
         onCancel={closeLogOutModal}
         message="Do you want to logout"
         actionBtnName="Log Out"
         onRemove={() => logOut()}
-      />
+      /> */}
     </div>
   );
 };
