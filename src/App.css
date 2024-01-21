@@ -78,3 +78,42 @@ input[type="number"]::-webkit-outer-spin-button {
   .wallet-bg{
     background: radial-gradient(circle, rgba(255, 255, 255, 0.117) 26%, rgba(229, 229, 229, 0) 100%);
   }
+/* Swiper arrow */
+
+.swiper-button-next, .swiper-button-prev{
+  padding: 0.4em;
+  height: 2em!important;
+  width: 2em!important;
+  background: rgb(232,250,227);
+    background: linear-gradient(225deg, rgba(232,250,227,1) 24%, rgba(255,233,212,1) 72%);
+    border-radius: 100%;
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+}
+.swiper-button-next{
+  right: 2px!important;
+} 
+.swiper-button-prev{
+  left: 2px!important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  content: ""; /* Remove the default content */
+  background-size: contain; /* Adjust based on your image size */
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: var(--swiper-navigation-size); /* Adjust based on your image size */
+  height: var(--swiper-navigation-size); /* Adjust based on your image size */
+  background-position: center;
+  font-size: 0!important;
+}
+
+.swiper-button-next:after{
+  background-image: url(./assets/right-arrow.svg);
+}
+.swiper-button-prev:after{
+  background-image: url(./assets/left-arrow.svg);
+}
+
+.swiper-button-disabled{
+  display: none!important;
+}

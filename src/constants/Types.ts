@@ -3,10 +3,15 @@ export enum BUCKET_TYPE {
   PERSONAL = "PERSONAL",
 }
 
+export enum CALL_TYPE {
+  BUY = "BUY",
+  SELL = "SELL",
+  CREATE = "CREATE",
+}
+
 export type AssetType = {
   logo: string;
   name: string;
-  price: number;
   percentage: number;
 };
 
@@ -14,8 +19,7 @@ export type BucketType = {
   uid: string;
   logo: string;
   title: string;
-  description?: string;
-  assets?: AssetType[];
+  assets: AssetType[];
   price: number;
   tvl: number;
   invested: boolean; // IT WILL INDICATE THAT WE CAN SELL IT.
@@ -25,7 +29,6 @@ export type BucketType = {
 
 // Modal.tsx
 export type ModalParams = {
-  title: string;
-  uid: string;
+  bucketData: BucketType;
   onClose: () => void;
 };
